@@ -44,7 +44,11 @@ class ClientController extends Controller
             'company_id' => '',
         ];
 
-        return new JsonResponse(['data' => $create]);
+        return new JsonResponse(
+            [
+                'data' => $create
+            ]
+        );
     }
 
     /**
@@ -65,7 +69,9 @@ class ClientController extends Controller
             'company_id' => $request->company_id,
         ]);
 
-        return new JsonResponse(['data' => $created]);
+        return new JsonResponse([
+            'data' => $created
+        ]);
     }
 
     /**
@@ -74,9 +80,15 @@ class ClientController extends Controller
      * @param  \App\Models\Client $client
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        return new JsonResponse(['data' => $client->query()->with('company')->get()]);
+        return new JsonResponse(
+            [
+                'data' => Client::with('company')
+                    ->where('id', $id)
+                    ->get()
+            ]
+        );
     }
 
     /**
@@ -98,7 +110,8 @@ class ClientController extends Controller
             'company_id' => $request->company_id,
         ];
 
-        Client::where('id', $id)->update($payload);
+        Client::where('id', $id)
+            ->update($payload);
 
         return new JsonResponse($payload);
     }
@@ -113,15 +126,25 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
 
-        $updated = $client->update([
-            'email' => $request->email ?? $client->email,
-            'first_name' => $request->first_name ?? $client->first_name,
-            'last_name' => $request->last_name ?? $client->last_name,
-            'primary_phone' => $request->primary_number ?? $client->primary_number,
-            'secondary_phone' => $request->secondary_number ?? $client->secondary_number,
-            'timezone' => $request->timezone ?? $client->timezone,
-            'company_id' => $request->company_id ?? $client->company_id,
-        ]);
+        $updated = $client
+            ->update(
+                [
+                    'email' =>
+                    $request->email ?? $client->email,
+                    'first_name' =>
+                    $request->first_name ?? $client->first_name,
+                    'last_name' =>
+                    $request->last_name ?? $client->last_name,
+                    'primary_phone' =>
+                    $request->primary_number ?? $client->primary_number,
+                    'secondary_phone' =>
+                    $request->secondary_number ?? $client->secondary_number,
+                    'timezone' =>
+                    $request->timezone ?? $client->timezone,
+                    'company_id' =>
+                    $request->company_id ?? $client->company_id,
+                ]
+            );
 
         if (!$updated) {
             return new JsonResponse([
