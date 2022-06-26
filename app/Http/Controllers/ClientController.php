@@ -46,7 +46,7 @@ class ClientController extends Controller
 
         return new JsonResponse(
             [
-                'data' => $create
+                'data' => $create,
             ]
         );
     }
@@ -70,14 +70,14 @@ class ClientController extends Controller
         ]);
 
         return new JsonResponse([
-            'data' => $created
+            'data' => $created,
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client $client
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
@@ -86,7 +86,7 @@ class ClientController extends Controller
             [
                 'data' => Client::with('company')
                     ->where('id', $id)
-                    ->get()
+                    ->get(),
             ]
         );
     }
@@ -120,33 +120,25 @@ class ClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client $client
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Client $client)
     {
-
         $updated = $client
             ->update(
                 [
-                    'email' =>
-                    $request->email ?? $client->email,
-                    'first_name' =>
-                    $request->first_name ?? $client->first_name,
-                    'last_name' =>
-                    $request->last_name ?? $client->last_name,
-                    'primary_phone' =>
-                    $request->primary_number ?? $client->primary_number,
-                    'secondary_phone' =>
-                    $request->secondary_number ?? $client->secondary_number,
-                    'timezone' =>
-                    $request->timezone ?? $client->timezone,
-                    'company_id' =>
-                    $request->company_id ?? $client->company_id,
+                    'email' => $request->email ?? $client->email,
+                    'first_name' => $request->first_name ?? $client->first_name,
+                    'last_name' => $request->last_name ?? $client->last_name,
+                    'primary_phone' => $request->primary_number ?? $client->primary_number,
+                    'secondary_phone' => $request->secondary_number ?? $client->secondary_number,
+                    'timezone' => $request->timezone ?? $client->timezone,
+                    'company_id' => $request->company_id ?? $client->company_id,
                 ]
             );
 
-        if (!$updated) {
+        if (! $updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
@@ -167,11 +159,12 @@ class ClientController extends Controller
     {
         $deleted = $client->forceDelete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             return new JsonResponse([
-                'errors' => 'Failed'
+                'errors' => 'Failed',
             ]);
         }
+
         return new JsonResponse([
             'status' => 'success',
         ]);
