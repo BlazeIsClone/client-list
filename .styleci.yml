@@ -1,13 +1,4 @@
 preset: laravel
 
-risky: true
-
 disabled:
   - no_unused_imports
-
-enabled:
-  - strict
-
-finder:
-  not-name:
-    - index.php
