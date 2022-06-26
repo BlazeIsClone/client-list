@@ -1,5 +1,7 @@
 preset: laravel
 
+risky: true
+
 disabled:
   - no_unused_imports
 
