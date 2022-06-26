@@ -16,15 +16,15 @@ class CompanyController extends Controller
      */
     public function index(Request $request)
     {
-        $limit = $request->query("limit");
+        $limit = $request->query('limit');
 
         if (empty($limit)) {
             $data = Company::query()
-                ->with("clients")
+                ->with('clients')
                 ->paginate($limit);
         } else {
             $data = Company::query()
-                ->with("clients")
+                ->with('clients')
                 ->paginate(50);
         }
 
@@ -39,19 +39,19 @@ class CompanyController extends Controller
     public function create()
     {
         $create = [
-            "name" => "",
-            "email" => "",
-            "domain" => "",
-            "primary_phone" => "",
-            "secondary_phone" => "",
-            "address" => "",
-            "description" => "",
-            "logo" => "",
+            'name' => '',
+            'email' => '',
+            'domain' => '',
+            'primary_phone' => '',
+            'secondary_phone' => '',
+            'address' => '',
+            'description' => '',
+            'logo' => '',
         ];
 
         return new JsonResponse(
             [
-                "data" => $create
+                'data' => $create,
             ]
         );
     }
@@ -65,19 +65,19 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $created = Company::query()->create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "domain" => $request->domain,
-            "primary_phone" => $request->primary_number,
-            "secondary_phone" => $request->secondary_number,
-            "address" => $request->address,
-            "description" => $request->description,
-            "logo" => $request->logo,
+            'name' => $request->name,
+            'email' => $request->email,
+            'domain' => $request->domain,
+            'primary_phone' => $request->primary_number,
+            'secondary_phone' => $request->secondary_number,
+            'address' => $request->address,
+            'description' => $request->description,
+            'logo' => $request->logo,
         ]);
 
         return new JsonResponse(
             [
-                "data" => $created
+                'data' => $created,
             ]
         );
     }
@@ -85,14 +85,14 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\JsonResponse
      */
     public function show(Company $company)
     {
         return new JsonResponse(
             [
-                "data" => $company->with("clients")->get()
+                'data' => $company->with('clients')->get(),
             ]
         );
     }
@@ -107,17 +107,17 @@ class CompanyController extends Controller
     public function edit(Request $request, $id)
     {
         $payload = [
-            "name" => $request->name,
-            "email" => $request->email,
-            "domain" => $request->domain,
-            "primary_phone" => $request->primary_number,
-            "secondary_phone" => $request->secondary_number,
-            "address" => $request->address,
-            "description" => $request->description,
-            "logo" => $request->logo,
+            'name' => $request->name,
+            'email' => $request->email,
+            'domain' => $request->domain,
+            'primary_phone' => $request->primary_number,
+            'secondary_phone' => $request->secondary_number,
+            'address' => $request->address,
+            'description' => $request->description,
+            'logo' => $request->logo,
         ];
 
-        Company::where("id", $id)
+        Company::where('id', $id)
             ->update($payload);
 
         return new JsonResponse($payload);
@@ -127,7 +127,7 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Company $company)
@@ -135,56 +135,49 @@ class CompanyController extends Controller
         $updated = $company
             ->update(
                 [
-                    "name" =>
-                    $request->name ?? $company->name,
-                    "email" =>
-                    $request->email ?? $company->email,
-                    "domain" =>
-                    $request->domain ?? $company->domain,
-                    "primary_phone" =>
-                    $request->primary_number ?? $company->primary_number,
-                    "secondary_phone" =>
-                    $request->secondary_number ?? $company->secondary_number,
-                    "address" =>
-                    $request->address ?? $company->address,
-                    "description" =>
-                    $request->description ?? $company->description,
-                    "logo" =>
-                    $request->logo ?? $company->logo,
+                    'name' => $request->name ?? $company->name,
+                    'email' => $request->email ?? $company->email,
+                    'domain' => $request->domain ?? $company->domain,
+                    'primary_phone' => $request->primary_number ?? $company->primary_number,
+                    'secondary_phone' => $request->secondary_number ?? $company->secondary_number,
+                    'address' => $request->address ?? $company->address,
+                    'description' => $request->description ?? $company->description,
+                    'logo' => $request->logo ?? $company->logo,
                 ]
             );
 
-        if (!$updated) {
+        if (! $updated) {
             return new JsonResponse(
                 [
-                    "erros" => "Failed to updated model.",
+                    'erros' => 'Failed to updated model.',
                 ],
                 400
             );
         }
 
         return new JsonResponse([
-            "data" => $updated,
+            'data' => $updated,
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Company $company)
     {
         $deleted = $company->forceDelete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             return new JsonResponse([
-                "errors" => "Failed",
+                'errors' => 'Failed',
             ]);
         }
+
         return new JsonResponse([
-            "status" => "success",
+            'status' => 'success',
         ]);
     }
 }

@@ -22,7 +22,7 @@ class Company extends Model
         'secondary_phone',
         'address',
         'description',
-        'logo'
+        'logo',
     ];
 
     public function clients()
