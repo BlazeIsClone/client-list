@@ -1,6 +1,13 @@
 preset: laravel
+
 disabled:
   - no_unused_imports
+
+enabled:
+  - long_array_syntax
+  - strict
+  - unalign_double_arrow
+
 finder:
   not-name:
     - index.php
