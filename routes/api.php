@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function () {
-	RouteHelper::class::includeRouteFiles(__DIR__ . '/v1');
+    RouteHelper::class::includeRouteFiles(__DIR__.'/v1');
 });
