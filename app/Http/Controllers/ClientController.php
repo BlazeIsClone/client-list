@@ -12,7 +12,7 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request    $request
+     * @param  \Illuminate\Http\Request  $request
      * @return ClientResource
      */
     public function index(Request $request)
@@ -38,7 +38,6 @@ class ClientController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     *
      * @return ClientResource
      */
     public function store(Request $request)
@@ -60,7 +59,6 @@ class ClientController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Client  $client
-     *
      * @return ClientResource
      */
     public function show(Client $client)
@@ -71,8 +69,7 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Client    $cilent
-     *
+     * @param  Client  $cilent
      * @return ClientResource
      */
     public function edit(Client $client)
@@ -85,7 +82,6 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
-     *
      * @return ClientResource | JsonResponse
      */
     public function update(Request $request, Client $client)
@@ -100,7 +96,7 @@ class ClientController extends Controller
             'company_id' => $request->company_id ?? $client->company_id,
         ]);
 
-        if (!$updated) {
+        if (! $updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
@@ -119,7 +115,7 @@ class ClientController extends Controller
     {
         $deleted = $client->forceDelete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);
