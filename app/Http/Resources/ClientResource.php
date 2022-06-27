@@ -25,6 +25,7 @@ class ClientResource extends JsonResource
             'company_id'        => $this->company_id,
             'created_at'        => $this->created_at,
             'updated_at'        => $this->updated_at,
+            'company' => new CompanyResource($this->whenLoaded('company')),
         ];
     }
 }

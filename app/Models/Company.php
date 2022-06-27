@@ -16,13 +16,14 @@ class Company extends Model
      */
     protected $fillable = [
         'name',
+        'logo',
         'email',
         'domain',
-        'phone_number',
-        'secondary_phone',
         'address',
+        'industry',
         'description',
-        'logo',
+        'primary_phone',
+        'secondary_phone',
     ];
 
     public function clients()

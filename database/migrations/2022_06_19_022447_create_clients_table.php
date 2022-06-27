@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('first_name');
             $table->string('last_name')->nullable();
+            $table->string('title')->nullable();
             $table->string('primary_phone')->nullable();
             $table->string('secondary_phone')->nullable();
+            $table->string('job_title')->default('employee');
             $table->string('timezone')->nullable();
             $table->foreignId('company_id')->nullable()->constrained();
             $table->timestamps();

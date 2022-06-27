@@ -16,12 +16,13 @@ class Client extends Model
      */
     protected $fillable = [
         'email',
-        'first_name',
+        'position',
         'last_name',
+        'first_name',
+        'company_id',
         'primary_phone',
         'secondary_phone',
         'timezone',
-        'company_id',
     ];
 
     // A client belongs to a company
