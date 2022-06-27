@@ -26,9 +26,9 @@ Route::resource('clients', ClientController::class);
 Route::resource('companies', CompanyController::class);
 
 Route::get('/', function () {
-    foreach (Route::getRoutes() as $value) {
-        $data[] = $value;
-    }
+	foreach (Route::getRoutes() as $value) {
+		$data[] = $value;
+	}
 
-    return new JsonResource($data);
+	return new JsonResource($data);
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -11,51 +12,34 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param  \Illuminate\Http\Request    $request
+     * @return ClientResource
      */
     public function index(Request $request)
     {
-        $limit = $request->query('limit');
+        $limit = $request->page_size ?? 20;
+        $clients = Client::query()->with('company')->paginate($limit);
 
-        if (empty($limit)) {
-            $data = Client::query()->with('company')->paginate($limit);
-        } else {
-            $data = Client::query()->with('company')->paginate(50);
-        }
-
-        return new JsonResponse($data);
+        return ClientResource::collection($clients);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Client $client)
     {
-        $create = [
-            'email' => '',
-            'first_name' => '',
-            'last_name' => '',
-            'primary_phone' => '',
-            'secondary_phone' => '',
-            'timezone' => '',
-            'company_id' => '',
-        ];
-
-        return new JsonResponse(
-            [
-                'data' => $create,
-            ]
-        );
+        return new ClientResource($client);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return ClientResource
      */
     public function store(Request $request)
     {
@@ -63,57 +47,37 @@ class ClientController extends Controller
             'email' => $request->email,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'primary_phone' => $request->primary_number,
-            'secondary_phone' => $request->secondary_number,
+            'primary_phone' => $request->primary_phone,
+            'secondary_phone' => $request->secondary_phone,
             'timezone' => $request->timezone,
             'company_id' => $request->company_id,
         ]);
 
-        return new JsonResponse([
-            'data' => $created,
-        ]);
+        return new ClientResource($created);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return ClientResource
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        return new JsonResponse(
-            [
-                'data' => Client::with('company')
-                    ->where('id', $id)
-                    ->get(),
-            ]
-        );
+        return new ClientResource($client);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param  Client    $cilent
+     * 
+     * @return ClientResource
      */
-    public function edit(Request $request, $id)
+    public function edit(Client $client)
     {
-        $payload = [
-            'email' => $request->email,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'primary_phone' => $request->primary_number,
-            'secondary_phone' => $request->secondary_number,
-            'timezone' => $request->timezone,
-            'company_id' => $request->company_id,
-        ];
-
-        Client::where('id', $id)
-            ->update($payload);
-
-        return new JsonResponse($payload);
+        return new ClientResource($client);
     }
 
     /**
@@ -121,32 +85,28 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return ClientResource | JsonResponse
      */
     public function update(Request $request, Client $client)
     {
-        $updated = $client
-            ->update(
-                [
-                    'email' => $request->email ?? $client->email,
-                    'first_name' => $request->first_name ?? $client->first_name,
-                    'last_name' => $request->last_name ?? $client->last_name,
-                    'primary_phone' => $request->primary_number ?? $client->primary_number,
-                    'secondary_phone' => $request->secondary_number ?? $client->secondary_number,
-                    'timezone' => $request->timezone ?? $client->timezone,
-                    'company_id' => $request->company_id ?? $client->company_id,
-                ]
-            );
+        $updated = $client->update([
+            'email' => $request->email ?? $client->email,
+            'first_name' => $request->first_name ?? $client->first_name,
+            'last_name' => $request->last_name ?? $client->last_name,
+            'primary_phone' => $request->primary_number ?? $client->primary_number,
+            'secondary_phone' => $request->secondary_number ?? $client->secondary_number,
+            'timezone' => $request->timezone ?? $client->timezone,
+            'company_id' => $request->company_id ?? $client->company_id,
+        ]);
 
-        if (! $updated) {
+        if (!$updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
         }
 
-        return new JsonResponse([
-            'data' => $updated,
-        ]);
+        return new ClientResource($updated);
     }
 
     /**
@@ -159,7 +119,7 @@ class ClientController extends Controller
     {
         $deleted = $client->forceDelete();
 
-        if (! $deleted) {
+        if (!$deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);
