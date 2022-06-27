@@ -146,7 +146,7 @@ class CompanyController extends Controller
                 ]
             );
 
-        if (! $updated) {
+        if (!$updated) {
             return new JsonResponse(
                 [
                     'erros' => 'Failed to updated model.',
@@ -170,7 +170,7 @@ class CompanyController extends Controller
     {
         $deleted = $company->forceDelete();
 
-        if (! $deleted) {
+        if (!$deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);
