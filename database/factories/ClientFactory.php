@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,6 +26,7 @@ class ClientFactory extends Factory
             'secondary_phone' => $this->faker->phoneNumber(),
             'job_title' => $this->faker->jobTitle(),
             'timezone' => $this->faker->country(),
+            'company_id' => Company::factory()
         ];
     }
 }

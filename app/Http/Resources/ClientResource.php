@@ -19,13 +19,15 @@ class ClientResource extends JsonResource
             'email'             => $this->email,
             'first_name'        => $this->first_name,
             'last_name'         => $this->last_name,
-            'primary_phone'     => $this->primary_number,
-            'secondary_phone'   => $this->secondary_number,
+            'primary_phone'     => $this->primary_phone,
+            'secondary_phone'   => $this->secondary_phone,
             'timezone'          => $this->timezone,
             'company_id'        => $this->company_id,
             'created_at'        => $this->created_at,
             'updated_at'        => $this->updated_at,
-            'company' => new CompanyResource($this->whenLoaded('company')),
+            'company'           => new CompanyResource(
+                $this->whenLoaded('company')
+            ),
         ];
     }
 }
