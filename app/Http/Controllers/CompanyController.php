@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CompanyResource;
+use App\Models\Company;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Models\Company;
 
 class CompanyController extends Controller
 {
@@ -13,7 +13,6 @@ class CompanyController extends Controller
      * Display a listing of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
-     * 
      * @return \App\http\Resources\CompanyResource
      */
     public function index(Request $request)
@@ -31,7 +30,6 @@ class CompanyController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  \App\Models\Client  $client
-     * 
      * @return \App\http\Resources\CompanyResource
      */
     public function create(Company $company)
@@ -43,7 +41,6 @@ class CompanyController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * 
      * @return \App\http\Resources\CompanyResource
      */
     public function store(Request $request)
@@ -66,7 +63,6 @@ class CompanyController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Company  $company
-     * 
      * @return \App\http\Resources\CompanyResource
      */
     public function show(Company $company)
@@ -78,7 +74,6 @@ class CompanyController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Company  $company
-     * 
      * @return \App\http\Resources\CompanyResource
      */
     public function edit(Company $company)
@@ -91,7 +86,6 @@ class CompanyController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Company  $company
-     * 
      * @return \App\http\Resources\CompanyResource
      */
     public function update(Request $request, Company $company)
@@ -107,7 +101,7 @@ class CompanyController extends Controller
             'logo' => $request->logo ?? $company->logo,
         ]);
 
-        if (!$updated) {
+        if (! $updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
@@ -120,14 +114,13 @@ class CompanyController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Company  $company
-     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Company $company)
     {
         $deleted = $company->forceDelete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);

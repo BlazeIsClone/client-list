@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ClientResource;
+use App\Models\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Models\Client;
 
 class ClientController extends Controller
 {
@@ -13,7 +13,6 @@ class ClientController extends Controller
      * Display a listing of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
-     * 
      * @return \App\http\Controllers\ClientController
      */
     public function index(Request $request)
@@ -31,7 +30,6 @@ class ClientController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  \App\Models\Client  $client
-     * 
      * @return \App\http\Controllers\ClientController
      */
     public function create(Client $client)
@@ -43,7 +41,6 @@ class ClientController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * 
      * @return \App\http\Controllers\ClientController
      */
     public function store(Request $request)
@@ -65,7 +62,6 @@ class ClientController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Client  $client
-     * 
      * @return \App\http\Controllers\ClientController
      */
     public function show(Client $client)
@@ -77,7 +73,6 @@ class ClientController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Client  $client
-     * 
      * @return \App\http\Controllers\ClientController
      */
     public function edit(Client $client)
@@ -90,7 +85,6 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
-     * 
      * @return \App\http\Controllers\ClientController | JsonResponse
      */
     public function update(Request $request, Client $client)
@@ -105,7 +99,7 @@ class ClientController extends Controller
             'company_id' => $request->company_id ?? $client->company_id,
         ]);
 
-        if (!$updated) {
+        if (! $updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
@@ -118,14 +112,13 @@ class ClientController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Client
-     * 
      * @return \Illuminate\Http\Response
      */
     public function destroy(Client $client)
     {
         $deleted = $client->forceDelete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);
