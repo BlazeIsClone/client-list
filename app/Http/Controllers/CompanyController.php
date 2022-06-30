@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
+use App\Http\Resources\CompanyResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Models\Company;
 
 class CompanyController extends Controller
 {
@@ -12,55 +13,38 @@ class CompanyController extends Controller
      * Display a listing of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return \App\http\Resources\CompanyResource
      */
     public function index(Request $request)
     {
-        $limit = $request->query('limit');
+        $limit = $request->page_size ?? 20;
 
-        if (empty($limit)) {
-            $data = Company::query()
-                ->with('clients')
-                ->paginate($limit);
-        } else {
-            $data = Company::query()
-                ->with('clients')
-                ->paginate(50);
-        }
+        $clients = Company::query()
+            ->with('clients')
+            ->paginate($limit);
 
-        return new JsonResponse($data);
+        return CompanyResource::collection($clients);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Client  $client
+     * 
+     * @return \App\http\Resources\CompanyResource
      */
-    public function create()
+    public function create(Company $company)
     {
-        $create = [
-            'name' => '',
-            'email' => '',
-            'domain' => '',
-            'primary_phone' => '',
-            'secondary_phone' => '',
-            'address' => '',
-            'description' => '',
-            'logo' => '',
-        ];
-
-        return new JsonResponse(
-            [
-                'data' => $create,
-            ]
-        );
+        return CompanyResource::collection($company);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return \App\http\Resources\CompanyResource
      */
     public function store(Request $request)
     {
@@ -75,52 +59,31 @@ class CompanyController extends Controller
             'logo' => $request->logo,
         ]);
 
-        return new JsonResponse(
-            [
-                'data' => $created,
-            ]
-        );
+        return new CompanyResource($created);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return \App\http\Resources\CompanyResource
      */
     public function show(Company $company)
     {
-        return new JsonResponse(
-            [
-                'data' => $company->with('clients')->get(),
-            ]
-        );
+        return new CompanyResource($company);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param  \App\Models\Company  $company
+     * 
+     * @return \App\http\Resources\CompanyResource
      */
-    public function edit(Request $request, $id)
+    public function edit(Company $company)
     {
-        $payload = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'domain' => $request->domain,
-            'primary_phone' => $request->primary_number,
-            'secondary_phone' => $request->secondary_number,
-            'address' => $request->address,
-            'description' => $request->description,
-            'logo' => $request->logo,
-        ];
-
-        Company::where('id', $id)
-            ->update($payload);
-
-        return new JsonResponse($payload);
+        return new CompanyResource($company);
     }
 
     /**
@@ -128,49 +91,43 @@ class CompanyController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @return \App\http\Resources\CompanyResource
      */
     public function update(Request $request, Company $company)
     {
-        $updated = $company
-            ->update(
-                [
-                    'name' => $request->name ?? $company->name,
-                    'email' => $request->email ?? $company->email,
-                    'domain' => $request->domain ?? $company->domain,
-                    'primary_phone' => $request->primary_number ?? $company->primary_number,
-                    'secondary_phone' => $request->secondary_number ?? $company->secondary_number,
-                    'address' => $request->address ?? $company->address,
-                    'description' => $request->description ?? $company->description,
-                    'logo' => $request->logo ?? $company->logo,
-                ]
-            );
+        $updated = $company->update([
+            'name' => $request->name ?? $company->name,
+            'email' => $request->email ?? $company->email,
+            'domain' => $request->domain ?? $company->domain,
+            'primary_phone' => $request->primary_number ?? $company->primary_number,
+            'secondary_phone' => $request->secondary_number ?? $company->secondary_number,
+            'address' => $request->address ?? $company->address,
+            'description' => $request->description ?? $company->description,
+            'logo' => $request->logo ?? $company->logo,
+        ]);
 
-        if (! $updated) {
-            return new JsonResponse(
-                [
-                    'erros' => 'Failed to updated model.',
-                ],
-                400
-            );
+        if (!$updated) {
+            return new JsonResponse([
+                'erros' => 'Failed to updated model.',
+            ], 400);
         }
 
-        return new JsonResponse([
-            'data' => $updated,
-        ]);
+        return new CompanyResource($updated);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Company  $company
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Company $company)
     {
         $deleted = $company->forceDelete();
 
-        if (! $deleted) {
+        if (!$deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);

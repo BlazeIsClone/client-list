@@ -26,6 +26,9 @@ class CompanyResource extends JsonResource
             'address'           => $this->address,
             'created_at'        => $this->created_at,
             'updated_at'        => $this->updated_at,
+            'clients'           => ClientResource::collection(
+                $this->whenLoaded('clients')
+            ),
         ];
     }
 }
