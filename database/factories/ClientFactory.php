@@ -26,7 +26,7 @@ class ClientFactory extends Factory
             'secondary_phone' => $this->faker->phoneNumber(),
             'job_title' => $this->faker->jobTitle(),
             'timezone' => $this->faker->country(),
-            'company_id' => Company::factory()
+            'company_id' => Company::factory(),
         ];
     }
 }
