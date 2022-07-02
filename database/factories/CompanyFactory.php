@@ -16,21 +16,18 @@ class CompanyFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->unique()->company();
+
         return [
-            'name' => $this->faker->unique()->company(),
-            'email' => $this->faker->companyEmail(),
-            'industry' => $this->faker->jobTitle(),
-            'domain' => $this->faker->unique()->domainName(),
-            'primary_phone' => $this->faker->phoneNumber(),
-            'secondary_phone' => $this->faker->phoneNumber(),
-            'address' => $this->faker->address(),
-            'description' => $this->faker->sentence(5),
-            'logo' => $this->faker->imageUrl(
-                width: 400,
-                height: 400,
-                category: 'comany',
-                word: 'logo'
-            ),
+            'name'              => $name,
+            'email'             => $this->faker->companyEmail(),
+            'industry'          => $this->faker->jobTitle(),
+            'domain'            => $this->faker->unique()->domainName(),
+            'primary_phone'     => $this->faker->phoneNumber(),
+            'secondary_phone'   => $this->faker->phoneNumber(),
+            'address'           => $this->faker->address(),
+            'description'       => $this->faker->sentence(5),
+            'logo'              => "https://avatars.dicebear.com/api/jdenticon/{$name}.png"
         ];
     }
 }

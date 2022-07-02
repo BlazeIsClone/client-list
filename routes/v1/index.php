@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 | METHOD		ENDPOINT				FUNCTION
 |
-| GET		/endpoint				index
+| GET		    /endpoint				index
 | GET			/endpoint/create		create
 | POST			/endpoint 				store
 | GET			/endpoint/{key}			show

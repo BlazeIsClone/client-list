@@ -14,6 +14,8 @@ class CompanyResource extends JsonResource
      */
     public function toArray($request)
     {
+        $clients = $this->whenLoaded('clients');
+
         return [
             'id'                => (string) $this->id,
             'name'              => $this->name,
@@ -26,9 +28,7 @@ class CompanyResource extends JsonResource
             'address'           => $this->address,
             'created_at'        => $this->created_at,
             'updated_at'        => $this->updated_at,
-            'clients'           => ClientResource::collection(
-                $this->whenLoaded('clients')
-            ),
+            'clients'           => ClientResource::collection($clients),
         ];
     }
 }

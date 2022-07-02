@@ -17,16 +17,20 @@ class ClientFactory extends Factory
      */
     public function definition()
     {
+        $firstName = $this->faker->firstName();
+        $lastName = $this->faker->lastName();
+
         return [
-            'email' => $this->faker->unique()->safeEmail,
-            'title' => $this->faker->title(),
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'primary_phone' => $this->faker->phoneNumber(),
-            'secondary_phone' => $this->faker->phoneNumber(),
-            'job_title' => $this->faker->jobTitle(),
-            'timezone' => $this->faker->country(),
-            'company_id' => Company::factory(),
+            'email'             => $this->faker->unique()->safeEmail,
+            'title'             => $this->faker->title(),
+            'first_name'        => $firstName,
+            'last_name'         => $lastName,
+            'avatar'            => "https://avatars.dicebear.com/api/initials/{$firstName}-{$lastName}.png",
+            'primary_phone'     => $this->faker->phoneNumber(),
+            'secondary_phone'   => $this->faker->phoneNumber(),
+            'job_title'         => $this->faker->jobTitle(),
+            'timezone'          => $this->faker->country(),
+            'company_id'        => Company::factory(),
         ];
     }
 }

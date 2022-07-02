@@ -62,12 +62,12 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  $id
      * @return \App\http\Resources\CompanyResource
      */
-    public function show(Company $company)
+    public function show($id)
     {
-        return new CompanyResource($company);
+        return Company::query()->with('clients')->find($id);
     }
 
     /**
@@ -101,7 +101,7 @@ class CompanyController extends Controller
             'logo' => $request->logo ?? $company->logo,
         ]);
 
-        if (! $updated) {
+        if (!$updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
@@ -120,7 +120,7 @@ class CompanyController extends Controller
     {
         $deleted = $company->forceDelete();
 
-        if (! $deleted) {
+        if (!$deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);

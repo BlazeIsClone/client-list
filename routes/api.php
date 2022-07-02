@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\RouteHelper;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1')->group(function () {
-    RouteHelper::class::includeRouteFiles(__DIR__.'/v1');
+Route::prefix('v1')->middleware('cors')->group(function () {
+    RouteHelper::class::includeRouteFiles(__DIR__ . '/v1');
 });
