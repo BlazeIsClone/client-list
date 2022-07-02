@@ -27,7 +27,7 @@ class CompanyFactory extends Factory
             'secondary_phone'   => $this->faker->phoneNumber(),
             'address'           => $this->faker->address(),
             'description'       => $this->faker->sentence(5),
-            'logo'              => "https://avatars.dicebear.com/api/jdenticon/{$name}.png"
+            'logo'              => "https://avatars.dicebear.com/api/jdenticon/{$name}.png",
         ];
     }
 }
