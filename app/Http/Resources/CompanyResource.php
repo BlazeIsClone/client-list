@@ -9,7 +9,8 @@ class CompanyResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\this  $this
+     * @param \Illuminate\Http\this $this
+     *
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)

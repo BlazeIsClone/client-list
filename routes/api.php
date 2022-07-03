@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->middleware('cors')->group(function () {
-    RouteHelper::class::includeRouteFiles(__DIR__ . '/v1');
+    RouteHelper::class::includeRouteFiles(__DIR__.'/v1');
 });
