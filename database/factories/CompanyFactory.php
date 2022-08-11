@@ -15,13 +15,12 @@ class CompanyFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {$name = $this->faker->unique()->company();
+    {
+        $name = $this->faker->unique()->company();
 
         return [
             'name' => $name,
-
             'email' => $this->faker->companyEmail(),
-
             'industry' => $this->faker->jobTitle(),
             'domain' => $this->faker->unique()->domainName(),
             'primary_phone' => $this->faker->phoneNumber(),
