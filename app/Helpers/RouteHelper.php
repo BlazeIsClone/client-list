@@ -15,7 +15,7 @@ class RouteHelper
         // Require the file in each iteration
         while ($it->valid()) {
             if (
-                !$it->isDot()
+                ! $it->isDot()
                 && $it->isFile()
                 && $it->isReadable()
                 && $it->current()->getExtension() === 'php'
