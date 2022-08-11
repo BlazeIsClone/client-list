@@ -99,7 +99,7 @@ class ClientController extends Controller
             'company_id' => $request->company_id ?? $client->company_id,
         ]);
 
-        if (!$updated) {
+        if (! $updated) {
             return new JsonResponse([
                 'erros' => 'Failed to updated model.',
             ], 400);
@@ -118,7 +118,7 @@ class ClientController extends Controller
     {
         $deleted = $client->forceDelete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             return new JsonResponse([
                 'errors' => 'Failed',
             ]);

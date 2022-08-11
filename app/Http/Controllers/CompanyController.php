@@ -62,7 +62,7 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  $id
+     * @param    $id
      * @return \App\http\Resources\CompanyResource
      */
     public function show($id)

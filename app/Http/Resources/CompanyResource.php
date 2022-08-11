@@ -17,18 +17,18 @@ class CompanyResource extends JsonResource
         $clients = $this->whenLoaded('clients');
 
         return [
-            'id'                => (string) $this->id,
-            'name'              => $this->name,
-            'logo'              => $this->logo,
-            'email'             => $this->email,
-            'domain'            => $this->domain,
-            'description'       => $this->description,
-            'primary_phone'     => $this->primary_phone,
-            'secondary_phone'   => $this->secondary_phone,
-            'address'           => $this->address,
-            'created_at'        => $this->created_at,
-            'updated_at'        => $this->updated_at,
-            'clients'           => ClientResource::collection($clients),
+            'id' => (string) $this->id,
+            'name' => $this->name,
+            'logo' => $this->logo,
+            'email' => $this->email,
+            'domain' => $this->domain,
+            'description' => $this->description,
+            'primary_phone' => $this->primary_phone,
+            'secondary_phone' => $this->secondary_phone,
+            'address' => $this->address,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'clients' => ClientResource::collection($clients),
         ];
     }
 }
