@@ -1,3 +1,7 @@
 # Client List API - (Backend)
 
-v0.1.0
+Running Artisan Commands
+
+```bash
+docker compose exec laravel php artisan --help
+```
