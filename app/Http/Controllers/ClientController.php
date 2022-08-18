@@ -7,12 +7,20 @@ use App\Models\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Client Management
+ *
+ * API to manage the client resource.
+ */
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the clients.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @queryParam page_size int Size per page. Defaults to 20.
+     * @queryParam page int int Page to view.
+     *
      * @return \App\http\Controllers\ClientController
      */
     public function index(Request $request)
@@ -27,7 +35,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new client.
      *
      * @param  \App\Models\Client  $client
      * @return \App\http\Controllers\ClientController
@@ -38,7 +46,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \App\http\Controllers\ClientController
@@ -59,7 +67,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified client.
      *
      * @param  \App\Models\Client  $client
      * @return \App\http\Controllers\ClientController
@@ -70,7 +78,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified client.
      *
      * @param  \App\Models\Client  $client
      * @return \App\http\Controllers\ClientController
@@ -81,7 +89,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
@@ -109,7 +117,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified client from storage.
      *
      * @param  \App\Models\Client
      * @return \Illuminate\Http\Response

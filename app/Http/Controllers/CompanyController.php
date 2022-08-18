@@ -7,12 +7,20 @@ use App\Models\Company;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Company Mangement
+ *
+ * API to manage company resource.
+ */
 class CompanyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the companies.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @queryParam page_size int Size per page. Defaults to 20.
+     * @queryParam page int int Page to view.
+     *
      * @return \App\http\Resources\CompanyResource
      */
     public function index(Request $request)
@@ -27,7 +35,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new company.
      *
      * @param  \App\Models\Client  $client
      * @return \App\http\Resources\CompanyResource
@@ -38,7 +46,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created company in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \App\http\Resources\CompanyResource
@@ -60,7 +68,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified company.
      *
      * @param $id
      * @return \App\http\Resources\CompanyResource
@@ -71,7 +79,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified company.
      *
      * @param  \App\Models\Company  $company
      * @return \App\http\Resources\CompanyResource
@@ -82,7 +90,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified company in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Company  $company
@@ -111,7 +119,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified company from storage.
      *
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\JsonResponse

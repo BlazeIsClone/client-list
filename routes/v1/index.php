@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Route;
 
 /*
