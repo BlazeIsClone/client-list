@@ -1,0 +1,7 @@
+{
+	// List of directories to exclude from search
+	"search.exclude": {
+		"**/.git": true,
+		"**/vendor": true
+	}
+}
