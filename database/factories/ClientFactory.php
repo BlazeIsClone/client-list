@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +16,7 @@ class ClientFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         $firstName = $this->faker->firstName();
         $lastName = $this->faker->lastName();
@@ -31,6 +32,7 @@ class ClientFactory extends Factory
             'job_title' => $this->faker->jobTitle(),
             'timezone' => $this->faker->country(),
             'company_id' => Company::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

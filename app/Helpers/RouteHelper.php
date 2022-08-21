@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 class RouteHelper
 {
-    public static function includeRouteFiles(string $folder)
+    public static function includeRouteFiles(string $folder): void
     {
         // Iterate thru the v1 folder recursively
         $dirIterator = new \RecursiveDirectoryIterator($folder);

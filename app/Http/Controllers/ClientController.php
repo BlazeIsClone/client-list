@@ -6,6 +6,7 @@ use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
  * @group Client Management
@@ -21,9 +22,9 @@ class ClientController extends Controller
      * @queryParam page_size int Size per page. Defaults to 20.
      * @queryParam page int int Page to view.
      *
-     * @return \App\http\Controllers\ClientController
+     * @return \Illuminate\Http\Resources\Json\ResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request): ResourceCollection
     {
         $limit = $request->page_size ?? 20;
 
@@ -38,9 +39,9 @@ class ClientController extends Controller
      * Show the form for creating a new client.
      *
      * @param  \App\Models\Client  $client
-     * @return \App\http\Controllers\ClientController
+     * @return \App\http\Resources\ClientResource
      */
-    public function create(Client $client)
+    public function create(Client $client): ClientResource
     {
         return new ClientResource($client);
     }
@@ -49,9 +50,9 @@ class ClientController extends Controller
      * Store a newly created client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \App\http\Controllers\ClientController
+     * @return \App\http\Resources\ClientResource
      */
-    public function store(Request $request)
+    public function store(Request $request): ClientResource
     {
         $created = Client::query()->create([
             'email' => $request->email,
@@ -70,9 +71,9 @@ class ClientController extends Controller
      * Display the specified client.
      *
      * @param  \App\Models\Client  $client
-     * @return \App\http\Controllers\ClientController
+     * @return \App\http\Resources\ClientResource
      */
-    public function show(Client $client)
+    public function show(Client $client): ClientResource
     {
         return new ClientResource($client);
     }
@@ -81,9 +82,9 @@ class ClientController extends Controller
      * Show the form for editing the specified client.
      *
      * @param  \App\Models\Client  $client
-     * @return \App\http\Controllers\ClientController
+     * @return \App\http\Resources\ClientResource
      */
-    public function edit(Client $client)
+    public function edit(Client $client): ClientResource
     {
         return new ClientResource($client);
     }
@@ -93,9 +94,9 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
-     * @return \App\http\Controllers\ClientController | JsonResponse
+     * @return \App\http\Resources\ClientResource | \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Client $client): ClientResource | JsonResponse
     {
         $updated = $client->update([
             'email' => $request->email ?? $client->email,
@@ -120,9 +121,9 @@ class ClientController extends Controller
      * Remove the specified client from storage.
      *
      * @param  \App\Models\Client
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Client $client)
+    public function destroy(Client $client): JsonResponse
     {
         $deleted = $client->forceDelete();
 

@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         User::factory()->count(15)->create();
         Client::factory()->count(100)->create();

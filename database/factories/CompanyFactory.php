@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,7 +15,7 @@ class CompanyFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         $name = $this->faker->unique()->company();
 
@@ -28,6 +29,7 @@ class CompanyFactory extends Factory
             'address' => $this->faker->address(),
             'description' => $this->faker->sentence(5),
             'logo' => "https://avatars.dicebear.com/api/jdenticon/{$name}.png",
+            'user_id' => User::factory(),
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
  * @group Company Mangement
@@ -21,9 +22,9 @@ class CompanyController extends Controller
      * @queryParam page_size int Size per page. Defaults to 20.
      * @queryParam page int int Page to view.
      *
-     * @return \App\http\Resources\CompanyResource
+     * @return \Illuminate\Http\Resources\Json\ResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request): ResourceCollection
     {
         $limit = $request->page_size ?? 20;
 
@@ -40,9 +41,9 @@ class CompanyController extends Controller
      * @param  \App\Models\Client  $client
      * @return \App\http\Resources\CompanyResource
      */
-    public function create(Company $company)
+    public function create(Company $company): CompanyResource
     {
-        return CompanyResource::collection($company);
+        return new CompanyResource($company);
     }
 
     /**
@@ -51,7 +52,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \App\http\Resources\CompanyResource
      */
-    public function store(Request $request)
+    public function store(Request $request): CompanyResource
     {
         $created = Company::query()->create([
             'name' => $request->name,
@@ -71,9 +72,9 @@ class CompanyController extends Controller
      * Display the specified company.
      *
      * @param $id
-     * @return \App\http\Resources\CompanyResource
+     * @return \App\Models\Company
      */
-    public function show($id)
+    public function show($id): Company
     {
         return Company::query()->with('clients')->find($id);
     }
@@ -84,7 +85,7 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \App\http\Resources\CompanyResource
      */
-    public function edit(Company $company)
+    public function edit(Company $company): CompanyResource
     {
         return new CompanyResource($company);
     }
@@ -94,9 +95,9 @@ class CompanyController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Company  $company
-     * @return \App\http\Resources\CompanyResource
+     * @return \App\http\Resources\CompanyResource | \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, Company $company): CompanyResource | JsonResponse
     {
         $updated = $company->update([
             'name' => $request->name ?? $company->name,
@@ -124,7 +125,7 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Company $company)
+    public function destroy(Company $company): JsonResponse
     {
         $deleted = $company->forceDelete();
 
