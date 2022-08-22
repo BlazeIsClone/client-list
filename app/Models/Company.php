@@ -30,8 +30,6 @@ class Company extends Model
 
     /**
      * Get all of the clients for the Company
-     *
-     * @return HasMany
      */
     public function clients(): HasMany
     {
@@ -40,8 +38,6 @@ class Company extends Model
 
     /**
      * Get the user that owns the Company
-     *
-     * @return BelongsTo
      */
     public function user(): BelongsTo
     {

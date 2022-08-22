@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JwtDecodeRequest;
 use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use Illuminate\Http\JsonResponse;
@@ -21,8 +22,6 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @queryParam page_size int Size per page. Defaults to 20.
      * @queryParam page int int Page to view.
-     *
-     * @return \Illuminate\Http\Resources\Json\ResourceCollection
      */
     public function index(Request $request): ResourceCollection
     {
@@ -39,7 +38,6 @@ class ClientController extends Controller
      * Show the form for creating a new client.
      *
      * @param  \App\Models\Client  $client
-     * @return \App\http\Resources\ClientResource
      */
     public function create(Client $client): ClientResource
     {
@@ -50,7 +48,6 @@ class ClientController extends Controller
      * Store a newly created client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \App\http\Resources\ClientResource
      */
     public function store(Request $request): ClientResource
     {
@@ -71,7 +68,6 @@ class ClientController extends Controller
      * Display the specified client.
      *
      * @param  \App\Models\Client  $client
-     * @return \App\http\Resources\ClientResource
      */
     public function show(Client $client): ClientResource
     {
@@ -82,7 +78,6 @@ class ClientController extends Controller
      * Show the form for editing the specified client.
      *
      * @param  \App\Models\Client  $client
-     * @return \App\http\Resources\ClientResource
      */
     public function edit(Client $client): ClientResource
     {
@@ -94,7 +89,6 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Client  $client
-     * @return \App\http\Resources\ClientResource | \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Client $client): ClientResource | JsonResponse
     {
@@ -121,7 +115,6 @@ class ClientController extends Controller
      * Remove the specified client from storage.
      *
      * @param  \App\Models\Client
-     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Client $client): JsonResponse
     {

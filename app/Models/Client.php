@@ -28,8 +28,6 @@ class Client extends Model
 
     /**
      * Get the company that owns the Client
-     *
-     * @return BelongsTo
      */
     public function company(): BelongsTo
     {
@@ -38,8 +36,6 @@ class Client extends Model
 
     /**
      * Get the user that owns the Client
-     *
-     * @return BelongsTo
      */
     public function user(): BelongsTo
     {

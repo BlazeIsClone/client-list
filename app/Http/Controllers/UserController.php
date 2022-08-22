@@ -16,11 +16,17 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class UserController extends Controller
 {
     /**
+    * Create the controller instance.
+    */
+    public function __construct()
+    {
+        $this->authorizeResource(User::class);
+    }
+
+    /**
      * Display a listing of users.
-     *
-     * @return ResourceCollection
      */
-    public function index(): ResourceCollection
+    public function index(Request $request): ResourceCollection
     {
         $users = User::query()
             ->get();
@@ -31,7 +37,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new user.
      *
-     * @return \App\Http\Resources\UserResource
+     * @param  \App\Models\User  $user
      */
     public function create(User $user): UserResource
     {
@@ -42,7 +48,6 @@ class UserController extends Controller
      * Store a newly created user in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \App\Http\Resources\UserResource
      */
     public function store(Request $request): UserResource
     {
@@ -57,7 +62,6 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\User  $user
-     * @return \App\Http\Resources\UserResource
      */
     public function show(User $user): UserResource
     {
@@ -68,7 +72,6 @@ class UserController extends Controller
      * Show the form for editing the specified user.
      *
      * @param  \App\Models\User  $user
-     * @return \App\Http\Resources\UserResource
      */
     public function edit(User $user): UserResource
     {
@@ -80,7 +83,6 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
-     * @return \App\http\Resources\UserResource | \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, User $user): UserResource | JsonResponse
     {
@@ -101,7 +103,6 @@ class UserController extends Controller
      * Remove the specified user from storage.
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(User $user): JsonResponse
     {

@@ -8,9 +8,6 @@ class ClientResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array \Illuminate\Contracts\Support\Arrayable | \JsonSerializable
      */
     public function toArray($request): array
     {
@@ -28,7 +25,7 @@ class ClientResource extends JsonResource
             'company_id' => $this->company_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'company' => new CompanyResource($this->company),
+            'company' => new CompanyResource($this->whenLoaded('company')),
             'user' => new UserResource($this->user),
         ];
     }

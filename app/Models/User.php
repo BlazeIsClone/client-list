@@ -35,8 +35,6 @@ class User extends Authenticatable
 
     /**
      * Get the client that owns the User
-     *
-     * @return BelongsTo
      */
     public function client(): BelongsTo
     {
@@ -45,11 +43,9 @@ class User extends Authenticatable
 
     /**
      * Get the company that owns the User
-     *
-     * @return BelongsTo
      */
     public function company(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Company::class);
     }
 }
