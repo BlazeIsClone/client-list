@@ -52,7 +52,7 @@ class UserController extends Controller
     public function store(Request $request): UserResource
     {
         $created = User::query()->create([
-            'uuid' => $request->email,
+            'uuid' => $request->uuid,
         ]);
 
         return new UserResource($created);

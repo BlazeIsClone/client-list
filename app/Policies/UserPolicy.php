@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Traits\UserClaims;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
@@ -26,7 +26,7 @@ class UserPolicy
     */
     public function view(?User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -34,7 +34,7 @@ class UserPolicy
     */
     public function create(?User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -42,7 +42,7 @@ class UserPolicy
     */
     public function update(?User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -50,7 +50,7 @@ class UserPolicy
     */
     public function delete(?User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -58,7 +58,7 @@ class UserPolicy
     */
     public function restore(?User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -66,6 +66,6 @@ class UserPolicy
     */
     public function forceDelete(?User $user): bool
     {
-        return false;
+        return true;
     }
 }

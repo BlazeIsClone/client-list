@@ -12,7 +12,7 @@ return new class () extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->text('uuid');
+            $table->string('uuid')->unique();
             $table->timestamps();
         });
     }

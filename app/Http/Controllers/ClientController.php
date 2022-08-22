@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\JwtDecodeRequest;
-use App\Http\Resources\ClientResource;
 use App\Models\Client;
+use App\Traits\UserClaims;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Http\Resources\ClientResource;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
@@ -16,6 +17,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
  */
 class ClientController extends Controller
 {
+    use UserClaims;
+
     /**
      * Display a listing of the clients.
      *
@@ -29,7 +32,9 @@ class ClientController extends Controller
 
         $clients = Client::query()
             ->with('company')
-            ->paginate($limit);
+            ->whereHas('user', function (Builder $query) {
+                return $query->where('uuid', $this->getUserUUID());
+            })->paginate($limit);
 
         return ClientResource::collection($clients);
     }

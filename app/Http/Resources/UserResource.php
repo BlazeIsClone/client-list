@@ -13,7 +13,7 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_uuid' => $this->uuid,
+            'uuid' => $this->uuid,
         ];
     }
 }
