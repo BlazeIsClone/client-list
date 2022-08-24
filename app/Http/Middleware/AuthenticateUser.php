@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticateUser
 {
     use UserClaims;
+
     /**
      * Handle an incoming request.
      */
