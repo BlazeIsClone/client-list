@@ -16,8 +16,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class CompanyController extends Controller
 {
     /**
-    * Create the controller instance.
-    */
+     * Create the controller instance.
+     */
     public function __construct(Company $company)
     {
         $this->authorizeResource($company::class);

@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-    * Create the controller instance.
-    */
+     * Create the controller instance.
+     */
     public function __construct(User $user)
     {
         $this->authorizeResource($user::class);

@@ -21,11 +21,11 @@ trait UserClaims
     {
         $token = $this->getToken();
 
-        if (!$token) {
+        if (! $token) {
             return false;
         }
 
-        $tokenChunks = explode(".", $token);
+        $tokenChunks = explode('.', $token);
         $rawPayload = strtr($tokenChunks[1], '-_', '+/');
         $payload = base64_decode($rawPayload);
 
@@ -33,11 +33,11 @@ trait UserClaims
     }
 
     /**
-    * Get user UUID
-    */
+     * Get user UUID
+     */
     public function getUserUUID(): string | false
     {
-        if (!$this->claims()) {
+        if (! $this->claims()) {
             return false;
         }
 

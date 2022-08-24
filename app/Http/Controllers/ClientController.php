@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use App\Traits\UserClaims;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Http\Resources\ClientResource;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
  * @group Client Management
@@ -20,8 +19,8 @@ class ClientController extends Controller
     use UserClaims;
 
     /**
-    * Create the controller instance.
-    */
+     * Create the controller instance.
+     */
     public function __construct(Client $client)
     {
         $this->authorizeResource($client::class);
