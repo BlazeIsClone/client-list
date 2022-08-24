@@ -22,6 +22,8 @@
     <style id="language-style">
         /* starts out as display none and is replaced with js later  */
                     body .content .bash-example code { display: none; }
+                    body .content .php-example code { display: none; }
+                    body .content .python-example code { display: none; }
                     body .content .javascript-example code { display: none; }
             </style>
 
@@ -36,7 +38,7 @@
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<body data-languages="[&quot;bash&quot;,&quot;php&quot;,&quot;python&quot;,&quot;javascript&quot;]">
 
 <a href="#" id="nav-button">
     <span>
@@ -48,6 +50,8 @@
     
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="python">python</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                     </div>
     
@@ -172,9 +176,6 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <p>Client List API Docs</p>
-<p>This documentation aims to provide all the information you need to work with our API.</p>
-<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
@@ -200,9 +201,46 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients?page_size=19&amp;page=19" \
+    --get "http://localhost:4500/v1/clients?page_size=7&amp;page=3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/clients',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'page_size'=&gt; '7',
+            'page'=&gt; '3',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients'
+params = {
+  'page_size': '7',
+  'page': '3',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 
 <div class="javascript-example">
@@ -211,8 +249,8 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 const params = {
-    "page_size": "19",
-    "page": "19",
+    "page_size": "7",
+    "page": "3",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -819,7 +857,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-clients"
-               value="19"
+               value="7"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -829,7 +867,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="page"
                data-endpoint="GETv1-clients"
-               value="19"
+               value="3"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -852,6 +890,35 @@ access-control-allow-credentials: true
     --get "http://localhost:4500/v1/clients/create" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/clients/create',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients/create'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 
 <div class="javascript-example">
@@ -967,6 +1034,35 @@ access-control-allow-credentials: true
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:4500/v1/clients',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
     "http://localhost:4500/v1/clients"
@@ -1040,14 +1136,43 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/15" \
+    --get "http://localhost:4500/v1/clients/19" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/clients/19',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients/19'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/15"
+    "http://localhost:4500/v1/clients/19"
 );
 
 const headers = {
@@ -1624,7 +1749,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="id"
                data-endpoint="GETv1-clients--id-"
-               value="15"
+               value="19"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -1644,14 +1769,43 @@ access-control-allow-credentials: true
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/8/edit" \
+    --get "http://localhost:4500/v1/clients/1/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/clients/1/edit',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients/1/edit'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/8/edit"
+    "http://localhost:4500/v1/clients/1/edit"
 );
 
 const headers = {
@@ -2228,7 +2382,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="client_id"
                data-endpoint="GETv1-clients--client_id--edit"
-               value="8"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -2248,14 +2402,43 @@ access-control-allow-credentials: true
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/clients/6" \
+    "http://localhost:4500/v1/clients/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:4500/v1/clients/7',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients/7'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/6"
+    "http://localhost:4500/v1/clients/7"
 );
 
 const headers = {
@@ -2321,7 +2504,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-clients--id-"
-               value="6"
+               value="7"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -2341,14 +2524,43 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/clients/9" \
+    "http://localhost:4500/v1/clients/12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:4500/v1/clients/12',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/clients/12'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/9"
+    "http://localhost:4500/v1/clients/12"
 );
 
 const headers = {
@@ -2410,7 +2622,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-clients--id-"
-               value="9"
+               value="12"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -2434,9 +2646,46 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies?page_size=8&amp;page=19" \
+    --get "http://localhost:4500/v1/companies?page_size=17&amp;page=15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/companies',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'page_size'=&gt; '17',
+            'page'=&gt; '15',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies'
+params = {
+  'page_size': '17',
+  'page': '15',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2445,8 +2694,8 @@ fetch(url, {
 );
 
 const params = {
-    "page_size": "8",
-    "page": "19",
+    "page_size": "17",
+    "page": "15",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3053,7 +3302,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-companies"
-               value="8"
+               value="17"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -3063,7 +3312,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="page"
                data-endpoint="GETv1-companies"
-               value="19"
+               value="15"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -3086,6 +3335,35 @@ access-control-allow-credentials: true
     --get "http://localhost:4500/v1/companies/create" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/companies/create',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies/create'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3198,6 +3476,35 @@ access-control-allow-credentials: true
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:4500/v1/companies',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
     "http://localhost:4500/v1/companies"
@@ -3271,14 +3578,43 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/3" \
+    --get "http://localhost:4500/v1/companies/5" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/companies/5',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies/5'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/3"
+    "http://localhost:4500/v1/companies/5"
 );
 
 const headers = {
@@ -3890,7 +4226,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="id"
                data-endpoint="GETv1-companies--id-"
-               value="3"
+               value="5"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -3910,14 +4246,43 @@ access-control-allow-credentials: true
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/13/edit" \
+    --get "http://localhost:4500/v1/companies/10/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/companies/10/edit',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies/10/edit'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/13/edit"
+    "http://localhost:4500/v1/companies/10/edit"
 );
 
 const headers = {
@@ -3943,7 +4308,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 60
+x-ratelimit-remaining: 52
 access-control-allow-origin: http://localhost:4000
 access-control-allow-credentials: true
  </code></pre>
@@ -4494,7 +4859,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="company_id"
                data-endpoint="GETv1-companies--company_id--edit"
-               value="13"
+               value="10"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -4514,14 +4879,43 @@ access-control-allow-credentials: true
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/companies/15" \
+    "http://localhost:4500/v1/companies/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:4500/v1/companies/6',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies/6'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/15"
+    "http://localhost:4500/v1/companies/6"
 );
 
 const headers = {
@@ -4587,7 +4981,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-companies--id-"
-               value="15"
+               value="6"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -4607,14 +5001,43 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/companies/2" \
+    "http://localhost:4500/v1/companies/18" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:4500/v1/companies/18',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/companies/18'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/2"
+    "http://localhost:4500/v1/companies/18"
 );
 
 const headers = {
@@ -4676,7 +5099,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-companies--id-"
-               value="2"
+               value="18"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -4703,6 +5126,35 @@ fetch(url, {
     --get "http://localhost:4500/v1/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/users',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 
 <div class="javascript-example">
@@ -5333,6 +5785,35 @@ access-control-allow-credentials: true
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/users/create',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users/create'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
     "http://localhost:4500/v1/users/create"
@@ -5434,6 +5915,35 @@ access-control-allow-credentials: true
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost:4500/v1/users',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
     "http://localhost:4500/v1/users"
@@ -5507,14 +6017,43 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/users/11" \
+    --get "http://localhost:4500/v1/users/14" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/users/14',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users/14'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/users/11"
+    "http://localhost:4500/v1/users/14"
 );
 
 const headers = {
@@ -6091,7 +6630,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="id"
                data-endpoint="GETv1-users--id-"
-               value="11"
+               value="14"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -6111,14 +6650,43 @@ access-control-allow-credentials: true
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/users/17/edit" \
+    --get "http://localhost:4500/v1/users/13/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost:4500/v1/users/13/edit',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users/13/edit'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/users/17/edit"
+    "http://localhost:4500/v1/users/13/edit"
 );
 
 const headers = {
@@ -6695,7 +7263,7 @@ access-control-allow-credentials: true
                 <input type="number"
                name="user_id"
                data-endpoint="GETv1-users--user_id--edit"
-               value="17"
+               value="13"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -6715,14 +7283,43 @@ access-control-allow-credentials: true
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/users/1" \
+    "http://localhost:4500/v1/users/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost:4500/v1/users/2',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users/2'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/users/1"
+    "http://localhost:4500/v1/users/2"
 );
 
 const headers = {
@@ -6788,7 +7385,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-users--id-"
-               value="1"
+               value="2"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -6808,14 +7405,43 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/users/20" \
+    "http://localhost:4500/v1/users/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost:4500/v1/users/13',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://localhost:4500/v1/users/13'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre></div>
+
+
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/users/20"
+    "http://localhost:4500/v1/users/13"
 );
 
 const headers = {
@@ -6877,7 +7503,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-users--id-"
-               value="20"
+               value="13"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -6891,6 +7517,8 @@ fetch(url, {
     <div class="dark-box">
                     <div class="lang-selector">
                                                         <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
                                                         <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                             </div>
             </div>

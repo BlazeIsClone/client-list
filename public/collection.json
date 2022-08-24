@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "ea170739-3aa8-472d-9b1a-665523e5edc8",
+        "_postman_id": "1fd0d409-ae4d-4736-b8f7-758d28825fad",
         "description": "Client List API Docs",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,18 +28,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "19",
+                                    "value": "7",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "19",
+                                    "value": "3",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/clients?page_size=19&page=19"
+                            "raw": "{{baseUrl}}\/v1\/clients?page_size=7&page=3"
                         },
                         "method": "GET",
                         "header": [
@@ -192,7 +192,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
+                                    "value": "19",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -260,7 +260,7 @@
                                 {
                                     "id": "client_id",
                                     "key": "client_id",
-                                    "value": "8",
+                                    "value": "1",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -328,7 +328,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "7",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -364,7 +364,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "12",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -403,18 +403,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "8",
+                                    "value": "17",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "19",
+                                    "value": "15",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/companies?page_size=8&page=19"
+                            "raw": "{{baseUrl}}\/v1\/companies?page_size=17&page=15"
                         },
                         "method": "GET",
                         "header": [
@@ -567,7 +567,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "5",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -635,7 +635,7 @@
                                 {
                                     "id": "company_id",
                                     "key": "company_id",
-                                    "value": "13",
+                                    "value": "10",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -674,7 +674,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "60"
+                                    "value": "52"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -703,7 +703,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
+                                    "value": "6",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -739,7 +739,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "18",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -929,7 +929,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "11",
+                                    "value": "14",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -997,7 +997,7 @@
                                 {
                                     "id": "user_id",
                                     "key": "user_id",
-                                    "value": "17",
+                                    "value": "13",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1065,7 +1065,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "2",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1101,7 +1101,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "20",
+                                    "value": "13",
                                     "description": "The ID of the user."
                                 }
                             ]

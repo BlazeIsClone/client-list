@@ -16,22 +16,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 19
+          example: 7
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 19
+            example: 7
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 19
+          example: 3
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 19
+            example: 3
         -
           in: header
           name: Content-Type
@@ -1995,7 +1995,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the client.'
-        example: 15
+        example: 19
         required: true
         schema:
           type: integer
@@ -2897,7 +2897,7 @@ paths:
         in: path
         name: client_id
         description: 'The ID of the client.'
-        example: 8
+        example: 1
         required: true
         schema:
           type: integer
@@ -2910,22 +2910,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 8
+          example: 17
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 8
+            example: 17
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 19
+          example: 15
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 19
+            example: 15
         -
           in: header
           name: Content-Type
@@ -4943,7 +4943,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 3
+        example: 5
         required: true
         schema:
           type: integer
@@ -5845,7 +5845,7 @@ paths:
         in: path
         name: company_id
         description: 'The ID of the company.'
-        example: 13
+        example: 10
         required: true
         schema:
           type: integer
@@ -7805,7 +7805,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 11
+        example: 14
         required: true
         schema:
           type: integer
@@ -8707,7 +8707,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 17
+        example: 13
         required: true
         schema:
           type: integer
