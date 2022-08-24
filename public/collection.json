@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "9b3a2599-a323-4b1f-9472-9ee3063469cf",
+        "_postman_id": "cb277710-c433-494e-919f-78aec37de794",
         "description": "Client List API Docs",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,18 +28,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "2",
+                                    "value": "20",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "15",
+                                    "value": "6",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/clients?page_size=2&page=15"
+                            "raw": "{{baseUrl}}\/v1\/clients?page_size=20&page=6"
                         },
                         "method": "GET",
                         "header": [
@@ -149,7 +149,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "6",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -192,7 +192,7 @@
                                 {
                                     "id": "client_id",
                                     "key": "client_id",
-                                    "value": "7",
+                                    "value": "4",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -235,7 +235,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
+                                    "value": "10",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -278,7 +278,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "18",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -324,18 +324,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "8",
+                                    "value": "2",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "11",
+                                    "value": "1",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/companies?page_size=8&page=11"
+                            "raw": "{{baseUrl}}\/v1\/companies?page_size=2&page=1"
                         },
                         "method": "GET",
                         "header": [
@@ -445,7 +445,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "16",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -469,19 +469,10 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 500,
-                            "body": "{\n    \"message\": \"SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for cl-mysql failed: Name or service not known (SQL: select * from `users` where (`uuid` = 0) limit 1)\",\n    \"exception\": \"Illuminate\\\\Database\\\\QueryException\",\n    \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Connection.php\",\n    \"line\": 759,\n    \"trace\": [\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Connection.php\",\n            \"line\": 898,\n            \"function\": \"runQueryCallback\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Connection.php\",\n            \"line\": 878,\n            \"function\": \"tryAgainIfCausedByLostConnection\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Connection.php\",\n            \"line\": 722,\n            \"function\": \"handleQueryException\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Connection.php\",\n            \"line\": 421,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php\",\n            \"line\": 2630,\n            \"function\": \"select\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php\",\n            \"line\": 2618,\n            \"function\": \"runSelect\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php\",\n            \"line\": 3154,\n            \"function\": \"Illuminate\\\\Database\\\\Query\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Query\/Builder.php\",\n            \"line\": 2619,\n            \"function\": \"onceWithColumns\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Eloquent\/Builder.php\",\n            \"line\": 699,\n            \"function\": \"get\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Eloquent\/Builder.php\",\n            \"line\": 683,\n            \"function\": \"getModels\",\n            \"class\": \"Illuminate\\\\Database\\\\Eloquent\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Database\/Concerns\/BuildsQueries.php\",\n            \"line\": 296,\n            \"function\": \"get\",\n            \"class\": \"Illuminate\\\\Database\\\\Eloquent\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/app\/Http\/Middleware\/AuthenticateUser.php\",\n            \"line\": 25,\n            \"function\": \"first\",\n            \"class\": \"Illuminate\\\\Database\\\\Eloquent\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\AuthenticateUser\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 142,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 111,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 299,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 123,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 80,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 56,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 55,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 139,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 308,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 124,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 998,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php\",\n            \"line\": 102,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 129,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/var\/www\/client-list\/api\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
-                            "name": ""
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "name": "0"
                         }
                     ]
                 },
@@ -540,7 +531,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "9",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -583,7 +574,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "14",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -650,7 +641,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"ea480c57-3248-3e7a-bc54-706651dbf893\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"70d1e13d-fee1-3cd5-b863-42ea1f6170aa\"}}",
                             "name": "0"
                         }
                     ]
@@ -685,7 +676,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"e0531954-eb67-362b-8c58-bd1fc485e472\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"8341a793-9a21-3d70-87c4-8fa32aa61b65\"}}",
                             "name": "0"
                         }
                     ]
@@ -720,7 +711,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"79d3deac-d4c3-34cf-aaa6-f076d5104559\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"b1b3ca86-490c-3727-85fd-ec62e3c8ce82\"}}",
                             "name": "0"
                         }
                     ]
@@ -737,7 +728,7 @@
                                 {
                                     "id": "user_id",
                                     "key": "user_id",
-                                    "value": "10",
+                                    "value": "9",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -763,7 +754,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"c135a3ba-d36a-3d49-8209-a97ef9e7c75d\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"af2ccb68-860e-3eac-9de0-7c370724310f\"}}",
                             "name": "0"
                         }
                     ]
@@ -780,7 +771,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "12",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -806,7 +797,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"87917552-ba28-3962-bf41-3be3e8a60e37\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"cfa16a63-2529-301e-8e7f-0d76cfc537eb\"}}",
                             "name": "0"
                         }
                     ]
@@ -823,7 +814,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "4",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -849,7 +840,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"1a55971a-a3c5-3394-a5b0-15c1cd7d0cb2\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"7b66e677-bec6-3f3f-9f5d-e470c929c7fc\"}}",
                             "name": "0"
                         }
                     ]

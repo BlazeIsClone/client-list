@@ -198,7 +198,7 @@
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients?page_size=2&amp;page=15" \
+    --get "http://localhost:4500/v1/clients?page_size=20&amp;page=6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -213,8 +213,8 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page_size'=&gt; '2',
-            'page'=&gt; '15',
+            'page_size'=&gt; '20',
+            'page'=&gt; '6',
         ],
     ]
 );
@@ -228,8 +228,8 @@ import json
 
 url = 'http://localhost:4500/v1/clients'
 params = {
-  'page_size': '2',
-  'page': '15',
+  'page_size': '20',
+  'page': '6',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -246,8 +246,8 @@ response.json()</code></pre></div>
 );
 
 const params = {
-    "page_size": "2",
-    "page": "15",
+    "page_size": "20",
+    "page": "6",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -353,7 +353,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-clients"
-               value="2"
+               value="20"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -363,7 +363,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETv1-clients"
-               value="15"
+               value="6"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -645,7 +645,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/12" \
+    --get "http://localhost:4500/v1/clients/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -653,7 +653,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:4500/v1/clients/12',
+    'http://localhost:4500/v1/clients/6',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -669,7 +669,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/clients/12'
+url = 'http://localhost:4500/v1/clients/6'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -681,7 +681,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/12"
+    "http://localhost:4500/v1/clients/6"
 );
 
 const headers = {
@@ -767,7 +767,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETv1-clients--id-"
-               value="12"
+               value="6"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -787,7 +787,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/7/edit" \
+    --get "http://localhost:4500/v1/clients/4/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -795,7 +795,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:4500/v1/clients/7/edit',
+    'http://localhost:4500/v1/clients/4/edit',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -811,7 +811,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/clients/7/edit'
+url = 'http://localhost:4500/v1/clients/4/edit'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -823,7 +823,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/7/edit"
+    "http://localhost:4500/v1/clients/4/edit"
 );
 
 const headers = {
@@ -909,7 +909,7 @@ fetch(url, {
                 <input type="number"
                name="client_id"
                data-endpoint="GETv1-clients--client_id--edit"
-               value="7"
+               value="4"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -929,7 +929,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/clients/15" \
+    "http://localhost:4500/v1/clients/10" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -937,7 +937,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://localhost:4500/v1/clients/15',
+    'http://localhost:4500/v1/clients/10',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -953,7 +953,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/clients/15'
+url = 'http://localhost:4500/v1/clients/10'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -965,7 +965,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/15"
+    "http://localhost:4500/v1/clients/10"
 );
 
 const headers = {
@@ -1055,7 +1055,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-clients--id-"
-               value="15"
+               value="10"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -1075,7 +1075,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/clients/6" \
+    "http://localhost:4500/v1/clients/18" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1083,7 +1083,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://localhost:4500/v1/clients/6',
+    'http://localhost:4500/v1/clients/18',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1099,7 +1099,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/clients/6'
+url = 'http://localhost:4500/v1/clients/18'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1111,7 +1111,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/6"
+    "http://localhost:4500/v1/clients/18"
 );
 
 const headers = {
@@ -1197,7 +1197,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-clients--id-"
-               value="6"
+               value="18"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -1221,7 +1221,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies?page_size=8&amp;page=11" \
+    --get "http://localhost:4500/v1/companies?page_size=2&amp;page=1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1236,8 +1236,8 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page_size'=&gt; '8',
-            'page'=&gt; '11',
+            'page_size'=&gt; '2',
+            'page'=&gt; '1',
         ],
     ]
 );
@@ -1251,8 +1251,8 @@ import json
 
 url = 'http://localhost:4500/v1/companies'
 params = {
-  'page_size': '8',
-  'page': '11',
+  'page_size': '2',
+  'page': '1',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1269,8 +1269,8 @@ response.json()</code></pre></div>
 );
 
 const params = {
-    "page_size": "8",
-    "page": "11",
+    "page_size": "2",
+    "page": "1",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1370,7 +1370,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-companies"
-               value="8"
+               value="2"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -1380,7 +1380,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETv1-companies"
-               value="11"
+               value="1"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -1656,7 +1656,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/6" \
+    --get "http://localhost:4500/v1/companies/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1664,7 +1664,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:4500/v1/companies/6',
+    'http://localhost:4500/v1/companies/16',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1680,7 +1680,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/companies/6'
+url = 'http://localhost:4500/v1/companies/16'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1692,7 +1692,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/6"
+    "http://localhost:4500/v1/companies/16"
 );
 
 const headers = {
@@ -1709,318 +1709,24 @@ fetch(url, {
 
 <span id="example-responses-GETv1-companies--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
+                <pre>
 
 <code class="language-json">{
-    &quot;message&quot;: &quot;SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for cl-mysql failed: Name or service not known (SQL: select * from `users` where (`uuid` = 0) limit 1)&quot;,
-    &quot;exception&quot;: &quot;Illuminate\\Database\\QueryException&quot;,
-    &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-    &quot;line&quot;: 759,
-    &quot;trace&quot;: [
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 898,
-            &quot;function&quot;: &quot;runQueryCallback&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 878,
-            &quot;function&quot;: &quot;tryAgainIfCausedByLostConnection&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 722,
-            &quot;function&quot;: &quot;handleQueryException&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 421,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2630,
-            &quot;function&quot;: &quot;select&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2618,
-            &quot;function&quot;: &quot;runSelect&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 3154,
-            &quot;function&quot;: &quot;Illuminate\\Database\\Query\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2619,
-            &quot;function&quot;: &quot;onceWithColumns&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php&quot;,
-            &quot;line&quot;: 699,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php&quot;,
-            &quot;line&quot;: 683,
-            &quot;function&quot;: &quot;getModels&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php&quot;,
-            &quot;line&quot;: 296,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/app/Http/Middleware/AuthenticateUser.php&quot;,
-            &quot;line&quot;: 25,
-            &quot;function&quot;: &quot;first&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 180,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Middleware\\AuthenticateUser&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 142,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 111,
-            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 299,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 287,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 89,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 45,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 222,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 179,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 123,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 80,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 56,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 55,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
-            &quot;line&quot;: 41,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 651,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
-            &quot;line&quot;: 139,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/symfony/console/Command/Command.php&quot;,
-            &quot;line&quot;: 308,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
-            &quot;line&quot;: 124,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 998,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 299,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 171,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Application.php&quot;,
-            &quot;line&quot;: 102,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
-            &quot;line&quot;: 129,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/client-list/api/artisan&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        }
-    ]
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;&quot;,
+        &quot;name&quot;: null,
+        &quot;logo&quot;: null,
+        &quot;email&quot;: null,
+        &quot;domain&quot;: null,
+        &quot;description&quot;: null,
+        &quot;primary_phone&quot;: null,
+        &quot;secondary_phone&quot;: null,
+        &quot;address&quot;: null,
+        &quot;created_at&quot;: null,
+        &quot;updated_at&quot;: null
+    }
 }</code>
  </pre>
     </span>
@@ -2069,7 +1775,7 @@ content-type: application/json
                 <input type="number"
                name="id"
                data-endpoint="GETv1-companies--id-"
-               value="6"
+               value="16"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -2228,7 +1934,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/companies/14" \
+    "http://localhost:4500/v1/companies/9" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2236,7 +1942,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://localhost:4500/v1/companies/14',
+    'http://localhost:4500/v1/companies/9',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -2252,7 +1958,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/companies/14'
+url = 'http://localhost:4500/v1/companies/9'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -2264,7 +1970,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/14"
+    "http://localhost:4500/v1/companies/9"
 );
 
 const headers = {
@@ -2351,7 +2057,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-companies--id-"
-               value="14"
+               value="9"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -2371,7 +2077,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/companies/13" \
+    "http://localhost:4500/v1/companies/14" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2379,7 +2085,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://localhost:4500/v1/companies/13',
+    'http://localhost:4500/v1/companies/14',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -2395,7 +2101,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/companies/13'
+url = 'http://localhost:4500/v1/companies/14'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -2407,7 +2113,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/13"
+    "http://localhost:4500/v1/companies/14"
 );
 
 const headers = {
@@ -2490,7 +2196,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-companies--id-"
-               value="13"
+               value="14"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -2574,7 +2280,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;ea480c57-3248-3e7a-bc54-706651dbf893&quot;
+        &quot;uuid&quot;: &quot;70d1e13d-fee1-3cd5-b863-42ea1f6170aa&quot;
     }
 }</code>
  </pre>
@@ -2693,7 +2399,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;e0531954-eb67-362b-8c58-bd1fc485e472&quot;
+        &quot;uuid&quot;: &quot;8341a793-9a21-3d70-87c4-8fa32aa61b65&quot;
     }
 }</code>
  </pre>
@@ -2812,7 +2518,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;79d3deac-d4c3-34cf-aaa6-f076d5104559&quot;
+        &quot;uuid&quot;: &quot;b1b3ca86-490c-3727-85fd-ec62e3c8ce82&quot;
     }
 }</code>
  </pre>
@@ -2871,7 +2577,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/user/10/edit" \
+    --get "http://localhost:4500/v1/user/9/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2879,7 +2585,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://localhost:4500/v1/user/10/edit',
+    'http://localhost:4500/v1/user/9/edit',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -2895,7 +2601,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/user/10/edit'
+url = 'http://localhost:4500/v1/user/9/edit'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -2907,7 +2613,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/user/10/edit"
+    "http://localhost:4500/v1/user/9/edit"
 );
 
 const headers = {
@@ -2931,7 +2637,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;c135a3ba-d36a-3d49-8209-a97ef9e7c75d&quot;
+        &quot;uuid&quot;: &quot;af2ccb68-860e-3eac-9de0-7c370724310f&quot;
     }
 }</code>
  </pre>
@@ -2981,7 +2687,7 @@ fetch(url, {
                 <input type="number"
                name="user_id"
                data-endpoint="GETv1-user--user_id--edit"
-               value="10"
+               value="9"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -3001,7 +2707,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/user/6" \
+    "http://localhost:4500/v1/user/12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3009,7 +2715,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://localhost:4500/v1/user/6',
+    'http://localhost:4500/v1/user/12',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -3025,7 +2731,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/user/6'
+url = 'http://localhost:4500/v1/user/12'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -3037,7 +2743,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/user/6"
+    "http://localhost:4500/v1/user/12"
 );
 
 const headers = {
@@ -3061,7 +2767,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;87917552-ba28-3962-bf41-3be3e8a60e37&quot;
+        &quot;uuid&quot;: &quot;cfa16a63-2529-301e-8e7f-0d76cfc537eb&quot;
     }
 }</code>
  </pre>
@@ -3115,7 +2821,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-user--id-"
-               value="6"
+               value="12"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -3135,7 +2841,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/user/8" \
+    "http://localhost:4500/v1/user/4" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -3143,7 +2849,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://localhost:4500/v1/user/8',
+    'http://localhost:4500/v1/user/4',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -3159,7 +2865,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost:4500/v1/user/8'
+url = 'http://localhost:4500/v1/user/4'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -3171,7 +2877,7 @@ response.json()</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/user/8"
+    "http://localhost:4500/v1/user/4"
 );
 
 const headers = {
@@ -3195,7 +2901,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;1a55971a-a3c5-3394-a5b0-15c1cd7d0cb2&quot;
+        &quot;uuid&quot;: &quot;7b66e677-bec6-3f3f-9f5d-e470c929c7fc&quot;
     }
 }</code>
  </pre>
@@ -3245,7 +2951,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-user--id-"
-               value="8"
+               value="4"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>

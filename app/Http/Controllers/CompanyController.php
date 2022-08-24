@@ -77,10 +77,13 @@ class CompanyController extends Controller
 
     /**
      * Display the specified company.
+     *
+     * @apiResource App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
-    public function show($id): Company
+    public function show(Company $company): CompanyResource
     {
-        return Company::query()->with('clients')->find($id);
+        return new CompanyResource($company);
     }
 
     /**

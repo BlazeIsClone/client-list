@@ -16,22 +16,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 2
+          example: 20
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 2
+            example: 20
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 15
+          example: 6
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 15
+            example: 6
         -
           in: header
           name: Content-Type
@@ -441,7 +441,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the client.'
-        example: 12
+        example: 6
         required: true
         schema:
           type: integer
@@ -513,7 +513,7 @@ paths:
         in: path
         name: client_id
         description: 'The ID of the client.'
-        example: 7
+        example: 4
         required: true
         schema:
           type: integer
@@ -526,22 +526,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 8
+          example: 2
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 8
+            example: 2
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 11
+          example: 1
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 11
+            example: 1
         -
           in: header
           name: Content-Type
@@ -755,540 +755,40 @@ paths:
           schema:
             type: string
       responses:
-        500:
-          description: ''
+        200:
+          description: '0'
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for cl-mysql failed: Name or service not known (SQL: select * from `users` where (`uuid` = 0) limit 1)'
-                  exception: Illuminate\Database\QueryException
-                  file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                  line: 759
-                  trace:
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                      line: 898
-                      function: runQueryCallback
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                      line: 878
-                      function: tryAgainIfCausedByLostConnection
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                      line: 722
-                      function: handleQueryException
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                      line: 421
-                      function: run
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                      line: 2630
-                      function: select
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                      line: 2618
-                      function: runSelect
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                      line: 3154
-                      function: 'Illuminate\Database\Query\{closure}'
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                      line: 2619
-                      function: onceWithColumns
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
-                      line: 699
-                      function: get
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
-                      line: 683
-                      function: getModels
-                      class: Illuminate\Database\Eloquent\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php
-                      line: 296
-                      function: get
-                      class: Illuminate\Database\Eloquent\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/app/Http/Middleware/AuthenticateUser.php
-                      line: 25
-                      function: first
-                      class: Illuminate\Database\Eloquent\Builder
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 180
-                      function: handle
-                      class: App\Http\Middleware\AuthenticateUser
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                      line: 116
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                      line: 142
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                      line: 111
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 299
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 287
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 89
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 45
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 222
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 179
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                      line: 116
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 123
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 80
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                      line: 56
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                      line: 55
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/Util.php
-                      line: 41
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                      line: 651
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                      line: 139
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/symfony/console/Command/Command.php
-                      line: 308
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                      line: 124
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/symfony/console/Application.php
-                      line: 998
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/symfony/console/Application.php
-                      line: 299
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/symfony/console/Application.php
-                      line: 171
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Application.php
-                      line: 102
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php
-                      line: 129
-                      function: run
-                      class: Illuminate\Console\Application
-                      type: '->'
-                    -
-                      file: /var/www/client-list/api/artisan
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
+                  data:
+                    id: ''
+                    name: null
+                    logo: null
+                    email: null
+                    domain: null
+                    description: null
+                    primary_phone: null
+                    secondary_phone: null
+                    address: null
+                    created_at: null
+                    updated_at: null
                 properties:
-                  message:
-                    type: string
-                    example: 'SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for cl-mysql failed: Name or service not known (SQL: select * from `users` where (`uuid` = 0) limit 1)'
-                  exception:
-                    type: string
-                    example: Illuminate\Database\QueryException
-                  file:
-                    type: string
-                    example: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                  line:
-                    type: integer
-                    example: 759
-                  trace:
-                    type: array
+                  data:
+                    type: object
                     example:
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                        line: 898
-                        function: runQueryCallback
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                        line: 878
-                        function: tryAgainIfCausedByLostConnection
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                        line: 722
-                        function: handleQueryException
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Connection.php
-                        line: 421
-                        function: run
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                        line: 2630
-                        function: select
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                        line: 2618
-                        function: runSelect
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                        line: 3154
-                        function: 'Illuminate\Database\Query\{closure}'
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php
-                        line: 2619
-                        function: onceWithColumns
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
-                        line: 699
-                        function: get
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php
-                        line: 683
-                        function: getModels
-                        class: Illuminate\Database\Eloquent\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php
-                        line: 296
-                        function: get
-                        class: Illuminate\Database\Eloquent\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/app/Http/Middleware/AuthenticateUser.php
-                        line: 25
-                        function: first
-                        class: Illuminate\Database\Eloquent\Builder
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 180
-                        function: handle
-                        class: App\Http\Middleware\AuthenticateUser
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
-                        line: 116
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                        line: 142
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
-                        line: 111
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 299
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 287
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 89
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 45
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 222
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 179
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
-                        line: 116
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 123
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 80
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
-                        line: 56
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
-                        line: 55
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/Util.php
-                        line: 41
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Container/Container.php
-                        line: 651
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                        line: 139
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/symfony/console/Command/Command.php
-                        line: 308
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Command.php
-                        line: 124
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/symfony/console/Application.php
-                        line: 998
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/symfony/console/Application.php
-                        line: 299
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/symfony/console/Application.php
-                        line: 171
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Console/Application.php
-                        line: 102
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php
-                        line: 129
-                        function: run
-                        class: Illuminate\Console\Application
-                        type: '->'
-                      -
-                        file: /var/www/client-list/api/artisan
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
+                      id: ''
+                      name: null
+                      logo: null
+                      email: null
+                      domain: null
+                      description: null
+                      primary_phone: null
+                      secondary_phone: null
+                      address: null
+                      created_at: null
+                      updated_at: null
       tags:
         - 'Company Mangement'
       security: []
@@ -1409,7 +909,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 6
+        example: 16
         required: true
         schema:
           type: integer
@@ -1508,13 +1008,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: ea480c57-3248-3e7a-bc54-706651dbf893
+                    uuid: 70d1e13d-fee1-3cd5-b863-42ea1f6170aa
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: ea480c57-3248-3e7a-bc54-706651dbf893
+                      uuid: 70d1e13d-fee1-3cd5-b863-42ea1f6170aa
       tags:
         - 'User Management'
       security: []
@@ -1546,13 +1046,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 79d3deac-d4c3-34cf-aaa6-f076d5104559
+                    uuid: b1b3ca86-490c-3727-85fd-ec62e3c8ce82
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 79d3deac-d4c3-34cf-aaa6-f076d5104559
+                      uuid: b1b3ca86-490c-3727-85fd-ec62e3c8ce82
       tags:
         - 'User Management'
       security: []
@@ -1585,13 +1085,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: e0531954-eb67-362b-8c58-bd1fc485e472
+                    uuid: 8341a793-9a21-3d70-87c4-8fa32aa61b65
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: e0531954-eb67-362b-8c58-bd1fc485e472
+                      uuid: 8341a793-9a21-3d70-87c4-8fa32aa61b65
       tags:
         - 'User Management'
       security: []
@@ -1624,13 +1124,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: c135a3ba-d36a-3d49-8209-a97ef9e7c75d
+                    uuid: af2ccb68-860e-3eac-9de0-7c370724310f
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: c135a3ba-d36a-3d49-8209-a97ef9e7c75d
+                      uuid: af2ccb68-860e-3eac-9de0-7c370724310f
       tags:
         - 'User Management'
       security: []
@@ -1639,7 +1139,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 10
+        example: 9
         required: true
         schema:
           type: integer
@@ -1672,13 +1172,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 87917552-ba28-3962-bf41-3be3e8a60e37
+                    uuid: cfa16a63-2529-301e-8e7f-0d76cfc537eb
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 87917552-ba28-3962-bf41-3be3e8a60e37
+                      uuid: cfa16a63-2529-301e-8e7f-0d76cfc537eb
       tags:
         - 'User Management'
       security: []
@@ -1710,13 +1210,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 1a55971a-a3c5-3394-a5b0-15c1cd7d0cb2
+                    uuid: 7b66e677-bec6-3f3f-9f5d-e470c929c7fc
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 1a55971a-a3c5-3394-a5b0-15c1cd7d0cb2
+                      uuid: 7b66e677-bec6-3f3f-9f5d-e470c929c7fc
       tags:
         - 'User Management'
       security: []
@@ -1725,7 +1225,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 6
+        example: 12
         required: true
         schema:
           type: integer
