@@ -16,22 +16,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 20
+          example: 4
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 20
+            example: 4
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 6
+          example: 1
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 6
+            example: 1
         -
           in: header
           name: Content-Type
@@ -441,7 +441,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the client.'
-        example: 6
+        example: 18
         required: true
         schema:
           type: integer
@@ -526,22 +526,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 2
+          example: 7
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 2
+            example: 7
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 1
+          example: 5
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 1
+            example: 5
         -
           in: header
           name: Content-Type
@@ -909,7 +909,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 16
+        example: 4
         required: true
         schema:
           type: integer
@@ -975,7 +975,7 @@ paths:
         in: path
         name: company_id
         description: 'The ID of the company.'
-        example: 1
+        example: 16
         required: true
         schema:
           type: integer
@@ -1008,13 +1008,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 70d1e13d-fee1-3cd5-b863-42ea1f6170aa
+                    uuid: 738765cd-f3c3-3f98-ab25-0f14110a11c2
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 70d1e13d-fee1-3cd5-b863-42ea1f6170aa
+                      uuid: 738765cd-f3c3-3f98-ab25-0f14110a11c2
       tags:
         - 'User Management'
       security: []
@@ -1046,13 +1046,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: b1b3ca86-490c-3727-85fd-ec62e3c8ce82
+                    uuid: b81d60cf-3f7a-3b8e-a8ed-89f3e01bb9f8
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: b1b3ca86-490c-3727-85fd-ec62e3c8ce82
+                      uuid: b81d60cf-3f7a-3b8e-a8ed-89f3e01bb9f8
       tags:
         - 'User Management'
       security: []
@@ -1085,13 +1085,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 8341a793-9a21-3d70-87c4-8fa32aa61b65
+                    uuid: 179c57d7-c0f2-35e3-85c1-c7cc9f82e2b3
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 8341a793-9a21-3d70-87c4-8fa32aa61b65
+                      uuid: 179c57d7-c0f2-35e3-85c1-c7cc9f82e2b3
       tags:
         - 'User Management'
       security: []
@@ -1124,13 +1124,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: af2ccb68-860e-3eac-9de0-7c370724310f
+                    uuid: d03c38fa-26e6-3d81-aa70-1dd6ba9323aa
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: af2ccb68-860e-3eac-9de0-7c370724310f
+                      uuid: d03c38fa-26e6-3d81-aa70-1dd6ba9323aa
       tags:
         - 'User Management'
       security: []
@@ -1139,7 +1139,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 9
+        example: 13
         required: true
         schema:
           type: integer
@@ -1172,13 +1172,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: cfa16a63-2529-301e-8e7f-0d76cfc537eb
+                    uuid: 5fc9b64f-4725-345c-bbc7-06ea4e63a953
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: cfa16a63-2529-301e-8e7f-0d76cfc537eb
+                      uuid: 5fc9b64f-4725-345c-bbc7-06ea4e63a953
       tags:
         - 'User Management'
       security: []
@@ -1210,13 +1210,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 7b66e677-bec6-3f3f-9f5d-e470c929c7fc
+                    uuid: d476f99d-fbd3-33cb-a027-c6ad1033b83f
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 7b66e677-bec6-3f3f-9f5d-e470c929c7fc
+                      uuid: d476f99d-fbd3-33cb-a027-c6ad1033b83f
       tags:
         - 'User Management'
       security: []
@@ -1225,7 +1225,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 12
+        example: 11
         required: true
         schema:
           type: integer

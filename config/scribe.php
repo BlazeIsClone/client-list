@@ -262,10 +262,8 @@ return [
      *
      */
     'example_languages' => [
-        'bash',
-        'php',
-        'python',
         'javascript',
+        'bash',
     ],
 
     /*
