@@ -23,7 +23,10 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of users.
+     * Display authenticated user.
+     *
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function index(): UserResource
     {
@@ -35,7 +38,8 @@ class UserController extends Controller
     /**
      * Show the form for creating a new user.
      *
-     * @param  \App\Models\User  $user
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function create(User $user): UserResource
     {
@@ -45,7 +49,8 @@ class UserController extends Controller
     /**
      * Store a newly created user in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function store(Request $request): UserResource
     {
@@ -59,7 +64,8 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified user.
      *
-     * @param  \App\Models\User  $user
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function edit(User $user): UserResource
     {
@@ -69,8 +75,8 @@ class UserController extends Controller
     /**
      * Update the specified user in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function update(Request $request, User $user): UserResource | JsonResponse
     {
@@ -90,7 +96,8 @@ class UserController extends Controller
     /**
      * Remove the specified user from storage.
      *
-     * @param  \App\Models\User  $user
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function destroy(User $user): JsonResponse
     {

@@ -26,9 +26,10 @@ class CompanyController extends Controller
     /**
      * Display a listing of the companies.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @queryParam page_size int Size per page. Defaults to 20.
      * @queryParam page int int Page to view.
+     * @apiResourceCollection App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
     public function index(Request $request): ResourceCollection
     {
@@ -44,7 +45,8 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new company.
      *
-     * @param  \App\Models\Client  $client
+     * @apiResource App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
     public function create(Company $company): CompanyResource
     {
@@ -54,7 +56,8 @@ class CompanyController extends Controller
     /**
      * Store a newly created company in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @apiResource App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
     public function store(Request $request): CompanyResource
     {
@@ -74,8 +77,6 @@ class CompanyController extends Controller
 
     /**
      * Display the specified company.
-     *
-     * @param $id
      */
     public function show($id): Company
     {
@@ -85,7 +86,8 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified company.
      *
-     * @param  \App\Models\Company  $company
+     * @apiResource App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
     public function edit(Company $company): CompanyResource
     {
@@ -95,8 +97,8 @@ class CompanyController extends Controller
     /**
      * Update the specified company in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $company
+     * @apiResource App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
     public function update(Request $request, Company $company): CompanyResource | JsonResponse
     {
@@ -123,7 +125,8 @@ class CompanyController extends Controller
     /**
      * Remove the specified company from storage.
      *
-     * @param  \App\Models\Company  $company
+     * @apiResource App\Http\Resources\CompanyResource
+     * @apiResourceModel App\Models\Company
      */
     public function destroy(Company $company): JsonResponse
     {
