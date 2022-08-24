@@ -6,7 +6,6 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
  * @group User Management
@@ -18,20 +17,19 @@ class UserController extends Controller
     /**
     * Create the controller instance.
     */
-    public function __construct()
+    public function __construct(User $user)
     {
-        $this->authorizeResource(User::class);
+        $this->authorizeResource($user::class);
     }
 
     /**
      * Display a listing of users.
      */
-    public function index(Request $request): ResourceCollection
+    public function index(): UserResource
     {
-        $users = User::query()
-            ->get();
+        $users = auth()->user();
 
-        return UserResource::collection($users);
+        return new UserResource($users);
     }
 
     /**
@@ -56,16 +54,6 @@ class UserController extends Controller
         ]);
 
         return new UserResource($created);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     */
-    public function show(User $user): UserResource
-    {
-        return new UserResource($user);
     }
 
     /**

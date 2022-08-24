@@ -20,6 +20,14 @@ class ClientController extends Controller
     use UserClaims;
 
     /**
+    * Create the controller instance.
+    */
+    public function __construct(Client $client)
+    {
+        $this->authorizeResource($client::class);
+    }
+
+    /**
      * Display a listing of the clients.
      *
      * @param  \Illuminate\Http\Request  $request

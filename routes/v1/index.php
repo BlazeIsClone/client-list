@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
  * @see https://laravel.com/docs/9.x/controllers#resource-controllers
  */
 
-Route::resource('clients', ClientController::class);
+Route::resource('user', UserController::class)->except('show');
+
 Route::resource('companies', CompanyController::class);
-Route::resource('users', UserController::class);
+
+Route::resource('clients', ClientController::class);
