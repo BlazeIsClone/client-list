@@ -148,7 +148,7 @@ return [
          * HTML documentation, assets and Postman collection will be generated to this folder.
          * Source Markdown will still be in resources/docs.
          */
-        'output_path' => 'public/docs',
+        'output_path' => 'public',
     ],
 
     /*
@@ -165,7 +165,7 @@ return [
          * URL path to use for the docs endpoint (if `add_routes` is true).
          * By default, `/docs` opens the HTML page, `/docs.postman` opens the Postman collection, and `/docs.openapi` the OpenAPI spec.
          */
-        'docs_url' => '/docs',
+        'docs_url' => '/',
 
         /*
          * Directory within `public` in which to store CSS and JS assets.
@@ -269,6 +269,8 @@ INTRO
      */
     'example_languages' => [
         'bash',
+        'php',
+        'python',
         'javascript',
     ],
 
