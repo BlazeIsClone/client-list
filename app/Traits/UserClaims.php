@@ -5,16 +5,28 @@ namespace App\Traits;
 trait UserClaims
 {
     /**
+     * Get the token from request header
+     */
+    private function getToken(): string | null
+    {
+        $token = request()->bearerToken();
+
+        return $token;
+    }
+
+    /**
      * Get the claims from request headers
      */
     private function claims(): object | false
     {
-        if (!request()->bearerToken()) {
+        $token = $this->getToken();
+
+        if (!$token) {
             return false;
         }
 
-        $tokenParts = explode(".", request()->bearerToken());
-        $rawPayload = strtr($tokenParts[1], '-_', '+/');
+        $tokenChunks = explode(".", $token);
+        $rawPayload = strtr($tokenChunks[1], '-_', '+/');
         $payload = base64_decode($rawPayload);
 
         return json_decode($payload);
