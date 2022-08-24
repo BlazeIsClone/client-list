@@ -26,7 +26,7 @@ class ClientController extends Controller
      * @queryParam page_size int Size per page. Defaults to 20.
      * @queryParam page int int Page to view.
      */
-    public function index(Request $request): ResourceCollection
+    public function index(Request $request)
     {
         $limit = $request->page_size ?? 20;
 
