@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "ca9c4d4a-4190-4bc2-8eb0-dd6e9f82517d",
+        "_postman_id": "643fef48-8eed-474e-b409-08cf99862044",
         "description": "Client List API Docs",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,18 +28,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "7",
+                                    "value": "11",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "16",
+                                    "value": "4",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/clients?page_size=7&page=16"
+                            "raw": "{{baseUrl}}\/v1\/clients?page_size=11&page=4"
                         },
                         "method": "GET",
                         "header": [
@@ -62,7 +62,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null},{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}]}",
+                            "body": "{\"data\":[{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null},{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}]}",
                             "name": "0"
                         }
                     ]
@@ -97,7 +97,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -124,7 +124,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"tierra95@example.com\",\"first_name\":\"minima\",\"last_name\":\"laudantium\",\"avatar\":\"http:\\\/\\\/hansen.com\\\/aut-quas-voluptates-eligendi-quia-totam-fuga\",\"title\":\"in\",\"primary_phone\":\"fugiat\",\"secondary_phone\":\"quasi\",\"job_title\":\"ut\",\"timezone\":\"id\",\"company_id\":18,\"user_id\":\"nihil\"}"
+                            "raw": "{\"email\":\"marc.carter@example.org\",\"first_name\":\"possimus\",\"last_name\":\"porro\",\"avatar\":\"http:\\\/\\\/www.cremin.com\\\/quidem-voluptatem-in-cupiditate-officia-a\",\"title\":\"sunt\",\"primary_phone\":\"ex\",\"secondary_phone\":\"debitis\",\"job_title\":\"voluptate\",\"timezone\":\"aspernatur\",\"company_id\":\"doloremque\",\"user_id\":\"dolore\"}"
                         },
                         "description": "",
                         "auth": {
@@ -135,7 +135,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -152,49 +152,6 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
-                                    "description": "The ID of the client."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}}",
-                            "name": "0"
-                        }
-                    ]
-                },
-                {
-                    "name": "Show the form for editing the specified client.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "v1\/clients\/:client_id\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/v1\/clients\/:client_id\/edit",
-                            "variable": [
-                                {
-                                    "id": "client_id",
-                                    "key": "client_id",
                                     "value": "16",
                                     "description": "The ID of the client."
                                 }
@@ -221,7 +178,50 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Show the form for editing the specified client.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "v1\/clients\/:client_id\/edit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/v1\/clients\/:client_id\/edit",
+                            "variable": [
+                                {
+                                    "id": "client_id",
+                                    "key": "client_id",
+                                    "value": "5",
+                                    "description": "The ID of the client."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -238,7 +238,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "12",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -264,7 +264,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -281,7 +281,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "14",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -307,7 +307,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"created_at\":null,\"updated_at\":null,\"user\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"email\":null,\"title\":null,\"first_name\":null,\"last_name\":null,\"primary_phone\":null,\"secondary_phone\":null,\"avatar\":null,\"job_title\":null,\"timezone\":null,\"company_id\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -327,18 +327,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "18",
+                                    "value": "7",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "1",
+                                    "value": "18",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/companies?page_size=18&page=1"
+                            "raw": "{{baseUrl}}\/v1\/companies?page_size=7&page=18"
                         },
                         "method": "GET",
                         "header": [
@@ -361,7 +361,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null},{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}]}",
+                            "body": "{\"data\":[{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null},{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}]}",
                             "name": "0"
                         }
                     ]
@@ -396,7 +396,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -421,7 +421,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"temporibus\",\"email\":\"jlynch@example.com\",\"domain\":\"earum\",\"primary_phone\":\"necessitatibus\",\"secondary_phone\":\"ab\",\"address\":\"sint\",\"description\":\"maiores\",\"logo\":\"blanditiis\",\"user_id\":\"aut\",\"client_ids\":[\"odio\"]}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -431,7 +434,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -448,7 +451,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
+                                    "value": "17",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -474,7 +477,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -491,7 +494,7 @@
                                 {
                                     "id": "company_id",
                                     "key": "company_id",
-                                    "value": "13",
+                                    "value": "11",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -517,7 +520,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -534,7 +537,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "11",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -560,7 +563,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -577,7 +580,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "1",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -603,7 +606,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"created_at\":null,\"updated_at\":null}}",
+                            "body": "{\"data\":{\"id\":\"\",\"name\":null,\"logo\":null,\"email\":null,\"domain\":null,\"description\":null,\"primary_phone\":null,\"secondary_phone\":null,\"address\":null,\"user\":null}}",
                             "name": "0"
                         }
                     ]
@@ -644,163 +647,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"01b12bff-979a-334c-8afe-e5d88a2f0adf\"}}",
-                            "name": "0"
-                        }
-                    ]
-                },
-                {
-                    "name": "Show the form for creating a new user.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "v1\/user\/create",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/v1\/user\/create"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"dae0677b-dfbe-3028-b86a-b19033a35026\"}}",
-                            "name": "0"
-                        }
-                    ]
-                },
-                {
-                    "name": "Store a newly created user in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "v1\/user",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/v1\/user"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"69168845-5017-3d53-b201-60a6746ed43b\"}}",
-                            "name": "0"
-                        }
-                    ]
-                },
-                {
-                    "name": "Show the form for editing the specified user.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "v1\/user\/:user_id\/edit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/v1\/user\/:user_id\/edit",
-                            "variable": [
-                                {
-                                    "id": "user_id",
-                                    "key": "user_id",
-                                    "value": "15",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"a6686dae-89ab-3861-b3e7-25f83e2e9f3b\"}}",
-                            "name": "0"
-                        }
-                    ]
-                },
-                {
-                    "name": "Update the specified user in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "v1\/user\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/v1\/user\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "15",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"86dd9e65-4220-3ac2-9fdb-e45e9cd91170\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"7aaff904-c007-3e54-be40-3205f99e863c\"}}",
                             "name": "0"
                         }
                     ]
@@ -810,17 +657,9 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "v1\/user\/:id",
+                            "path": "v1\/user",
                             "query": [],
-                            "raw": "{{baseUrl}}\/v1\/user\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "15",
-                                    "description": "The ID of the user."
-                                }
-                            ]
+                            "raw": "{{baseUrl}}\/v1\/user"
                         },
                         "method": "DELETE",
                         "header": [
@@ -843,7 +682,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"6644c1fe-c565-39df-b3cd-f55497a2109a\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"c731efea-1aa4-3f82-a46f-f3763c86935b\"}}",
                             "name": "0"
                         }
                     ]

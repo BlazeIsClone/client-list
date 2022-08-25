@@ -16,22 +16,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 7
+          example: 11
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 7
+            example: 11
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 16
+          example: 4
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 16
+            example: 4
         -
           in: header
           name: Content-Type
@@ -67,8 +67,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
                     -
                       id: ''
@@ -82,8 +80,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
                 properties:
                   data:
@@ -101,8 +97,6 @@ paths:
                         job_title: null
                         timezone: null
                         company_id: null
-                        created_at: null
-                        updated_at: null
                         user: null
                       -
                         id: ''
@@ -116,8 +110,6 @@ paths:
                         job_title: null
                         timezone: null
                         company_id: null
-                        created_at: null
-                        updated_at: null
                         user: null
                     items:
                       type: object
@@ -162,8 +154,6 @@ paths:
                     job_title: null
                     timezone: null
                     company_id: null
-                    created_at: null
-                    updated_at: null
                     user: null
                 properties:
                   data:
@@ -180,8 +170,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
       tags:
         - 'Client Management'
@@ -195,50 +183,51 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: tierra95@example.com
+                  example: marc.carter@example.org
                 first_name:
                   type: string
                   description: ''
-                  example: minima
+                  example: possimus
                 last_name:
                   type: string
                   description: ''
-                  example: laudantium
+                  example: porro
                 avatar:
                   type: string
                   description: 'Must be a valid URL.'
-                  example: 'http://hansen.com/aut-quas-voluptates-eligendi-quia-totam-fuga'
+                  example: 'http://www.cremin.com/quidem-voluptatem-in-cupiditate-officia-a'
                 title:
                   type: string
                   description: ''
-                  example: in
+                  example: sunt
                 primary_phone:
                   type: string
                   description: ''
-                  example: fugiat
+                  example: ex
                 secondary_phone:
                   type: string
                   description: ''
-                  example: quasi
+                  example: debitis
                 job_title:
                   type: string
                   description: ''
-                  example: ut
+                  example: voluptate
                 timezone:
                   type: string
                   description: ''
-                  example: id
+                  example: aspernatur
                 company_id:
-                  type: integer
+                  type: string
                   description: ''
-                  example: 18
+                  example: doloremque
                 user_id:
                   type: string
                   description: ''
-                  example: nihil
+                  example: dolore
               required:
                 - email
                 - first_name
+                - user_id
       security: []
   /v1/clients/create:
     get:
@@ -279,8 +268,6 @@ paths:
                     job_title: null
                     timezone: null
                     company_id: null
-                    created_at: null
-                    updated_at: null
                     user: null
                 properties:
                   data:
@@ -297,8 +284,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
       tags:
         - 'Client Management'
@@ -342,8 +327,6 @@ paths:
                     job_title: null
                     timezone: null
                     company_id: null
-                    created_at: null
-                    updated_at: null
                     user: null
                 properties:
                   data:
@@ -360,8 +343,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
       tags:
         - 'Client Management'
@@ -404,8 +385,6 @@ paths:
                     job_title: null
                     timezone: null
                     company_id: null
-                    created_at: null
-                    updated_at: null
                     user: null
                 properties:
                   data:
@@ -422,8 +401,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
       tags:
         - 'Client Management'
@@ -466,8 +443,6 @@ paths:
                     job_title: null
                     timezone: null
                     company_id: null
-                    created_at: null
-                    updated_at: null
                     user: null
                 properties:
                   data:
@@ -484,8 +459,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
       tags:
         - 'Client Management'
@@ -495,7 +468,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the client.'
-        example: 15
+        example: 16
         required: true
         schema:
           type: integer
@@ -538,8 +511,6 @@ paths:
                     job_title: null
                     timezone: null
                     company_id: null
-                    created_at: null
-                    updated_at: null
                     user: null
                 properties:
                   data:
@@ -556,8 +527,6 @@ paths:
                       job_title: null
                       timezone: null
                       company_id: null
-                      created_at: null
-                      updated_at: null
                       user: null
       tags:
         - 'Client Management'
@@ -567,7 +536,7 @@ paths:
         in: path
         name: client_id
         description: 'The ID of the client.'
-        example: 16
+        example: 5
         required: true
         schema:
           type: integer
@@ -580,22 +549,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 18
+          example: 7
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 18
+            example: 7
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 1
+          example: 18
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 1
+            example: 18
         -
           in: header
           name: Content-Type
@@ -629,8 +598,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
                     -
                       id: ''
                       name: null
@@ -641,8 +609,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
                 properties:
                   data:
                     type: array
@@ -657,8 +624,7 @@ paths:
                         primary_phone: null
                         secondary_phone: null
                         address: null
-                        created_at: null
-                        updated_at: null
+                        user: null
                       -
                         id: ''
                         name: null
@@ -669,8 +635,7 @@ paths:
                         primary_phone: null
                         secondary_phone: null
                         address: null
-                        created_at: null
-                        updated_at: null
+                        user: null
                     items:
                       type: object
       tags:
@@ -712,8 +677,7 @@ paths:
                     primary_phone: null
                     secondary_phone: null
                     address: null
-                    created_at: null
-                    updated_at: null
+                    user: null
                 properties:
                   data:
                     type: object
@@ -727,10 +691,61 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
       tags:
         - 'Company Mangement'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: temporibus
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: jlynch@example.com
+                domain:
+                  type: string
+                  description: ''
+                  example: earum
+                primary_phone:
+                  type: string
+                  description: ''
+                  example: necessitatibus
+                secondary_phone:
+                  type: string
+                  description: ''
+                  example: ab
+                address:
+                  type: string
+                  description: ''
+                  example: sint
+                description:
+                  type: string
+                  description: ''
+                  example: maiores
+                logo:
+                  type: string
+                  description: ''
+                  example: blanditiis
+                user_id:
+                  type: string
+                  description: ''
+                  example: aut
+                client_ids:
+                  type: array
+                  description: ''
+                  example:
+                    - odio
+                  items:
+                    type: string
+              required:
+                - user_id
       security: []
   /v1/companies/create:
     get:
@@ -769,8 +784,7 @@ paths:
                     primary_phone: null
                     secondary_phone: null
                     address: null
-                    created_at: null
-                    updated_at: null
+                    user: null
                 properties:
                   data:
                     type: object
@@ -784,8 +798,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
       tags:
         - 'Company Mangement'
       security: []
@@ -826,8 +839,7 @@ paths:
                     primary_phone: null
                     secondary_phone: null
                     address: null
-                    created_at: null
-                    updated_at: null
+                    user: null
                 properties:
                   data:
                     type: object
@@ -841,8 +853,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
       tags:
         - 'Company Mangement'
       security: []
@@ -882,8 +893,7 @@ paths:
                     primary_phone: null
                     secondary_phone: null
                     address: null
-                    created_at: null
-                    updated_at: null
+                    user: null
                 properties:
                   data:
                     type: object
@@ -897,8 +907,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
       tags:
         - 'Company Mangement'
       security: []
@@ -938,8 +947,7 @@ paths:
                     primary_phone: null
                     secondary_phone: null
                     address: null
-                    created_at: null
-                    updated_at: null
+                    user: null
                 properties:
                   data:
                     type: object
@@ -953,8 +961,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
       tags:
         - 'Company Mangement'
       security: []
@@ -963,7 +970,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 15
+        example: 17
         required: true
         schema:
           type: integer
@@ -1004,8 +1011,7 @@ paths:
                     primary_phone: null
                     secondary_phone: null
                     address: null
-                    created_at: null
-                    updated_at: null
+                    user: null
                 properties:
                   data:
                     type: object
@@ -1019,8 +1025,7 @@ paths:
                       primary_phone: null
                       secondary_phone: null
                       address: null
-                      created_at: null
-                      updated_at: null
+                      user: null
       tags:
         - 'Company Mangement'
       security: []
@@ -1029,7 +1034,7 @@ paths:
         in: path
         name: company_id
         description: 'The ID of the company.'
-        example: 13
+        example: 11
         required: true
         schema:
           type: integer
@@ -1062,177 +1067,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 01b12bff-979a-334c-8afe-e5d88a2f0adf
+                    uuid: 7aaff904-c007-3e54-be40-3205f99e863c
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 01b12bff-979a-334c-8afe-e5d88a2f0adf
-      tags:
-        - 'User Management'
-      security: []
-    post:
-      summary: 'Store a newly created user in storage.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '0'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: null
-                    uuid: 69168845-5017-3d53-b201-60a6746ed43b
-                properties:
-                  data:
-                    type: object
-                    example:
-                      id: null
-                      uuid: 69168845-5017-3d53-b201-60a6746ed43b
-      tags:
-        - 'User Management'
-      security: []
-  /v1/user/create:
-    get:
-      summary: 'Show the form for creating a new user.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '0'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: null
-                    uuid: dae0677b-dfbe-3028-b86a-b19033a35026
-                properties:
-                  data:
-                    type: object
-                    example:
-                      id: null
-                      uuid: dae0677b-dfbe-3028-b86a-b19033a35026
-      tags:
-        - 'User Management'
-      security: []
-  '/v1/user/{user_id}/edit':
-    get:
-      summary: 'Show the form for editing the specified user.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '0'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: null
-                    uuid: a6686dae-89ab-3861-b3e7-25f83e2e9f3b
-                properties:
-                  data:
-                    type: object
-                    example:
-                      id: null
-                      uuid: a6686dae-89ab-3861-b3e7-25f83e2e9f3b
-      tags:
-        - 'User Management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: user_id
-        description: 'The ID of the user.'
-        example: 15
-        required: true
-        schema:
-          type: integer
-  '/v1/user/{id}':
-    put:
-      summary: 'Update the specified user in storage.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '0'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: null
-                    uuid: 86dd9e65-4220-3ac2-9fdb-e45e9cd91170
-                properties:
-                  data:
-                    type: object
-                    example:
-                      id: null
-                      uuid: 86dd9e65-4220-3ac2-9fdb-e45e9cd91170
+                      uuid: 7aaff904-c007-3e54-be40-3205f99e863c
       tags:
         - 'User Management'
       security: []
@@ -1264,25 +1105,16 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 6644c1fe-c565-39df-b3cd-f55497a2109a
+                    uuid: c731efea-1aa4-3f82-a46f-f3763c86935b
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 6644c1fe-c565-39df-b3cd-f55497a2109a
+                      uuid: c731efea-1aa4-3f82-a46f-f3763c86935b
       tags:
         - 'User Management'
       security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the user.'
-        example: 15
-        required: true
-        schema:
-          type: integer
 tags:
   -
     name: 'Client Management'

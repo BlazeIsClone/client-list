@@ -8,8 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/theme-default.style.css" media="screen">
-    <link rel="stylesheet" href="./css/theme-default.print.css" media="print">
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
@@ -30,9 +30,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="./js/tryitout-3.36.0.js"></script>
+    <script src="../docs/js/tryitout-3.36.0.js"></script>
 
-    <script src="./js/theme-default-3.36.0.js"></script>
+    <script src="../docs/js/theme-default-3.36.0.js"></script>
 
 </head>
 
@@ -41,7 +41,7 @@
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="./images/navbar.png" alt="navbar-image" />
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
     </span>
 </a>
 <div class="tocify-wrapper">
@@ -143,8 +143,8 @@
             </div>
 
             <ul class="toc-footer" id="toc-footer">
-                            <li><a href="./collection.json">View Postman collection</a></li>
-                            <li><a href="./openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
@@ -188,8 +188,8 @@
 );
 
 const params = {
-    "page_size": "11",
-    "page": "4",
+    "page_size": "8",
+    "page": "12",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -207,7 +207,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients?page_size=11&amp;page=4" \
+    --get "http://localhost:4500/v1/clients?page_size=8&amp;page=12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -298,7 +298,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-clients"
-               value="11"
+               value="8"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -308,7 +308,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETv1-clients"
-               value="4"
+               value="12"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -437,17 +437,17 @@ const headers = {
 };
 
 let body = {
-    "email": "marc.carter@example.org",
-    "first_name": "possimus",
-    "last_name": "porro",
-    "avatar": "http:\/\/www.cremin.com\/quidem-voluptatem-in-cupiditate-officia-a",
-    "title": "sunt",
-    "primary_phone": "ex",
-    "secondary_phone": "debitis",
-    "job_title": "voluptate",
-    "timezone": "aspernatur",
-    "company_id": "doloremque",
-    "user_id": "dolore"
+    "email": "maddison.mcdermott@example.com",
+    "first_name": "quo",
+    "last_name": "nostrum",
+    "avatar": "https:\/\/www.bins.com\/voluptatem-aut-odit-hic-eos-amet-ipsam",
+    "title": "veritatis",
+    "primary_phone": "nostrum",
+    "secondary_phone": "mollitia",
+    "job_title": "vel",
+    "timezone": "suscipit",
+    "company_id": "neque",
+    "user_id": "est"
 };
 
 fetch(url, {
@@ -463,17 +463,17 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"marc.carter@example.org\",
-    \"first_name\": \"possimus\",
-    \"last_name\": \"porro\",
-    \"avatar\": \"http:\\/\\/www.cremin.com\\/quidem-voluptatem-in-cupiditate-officia-a\",
-    \"title\": \"sunt\",
-    \"primary_phone\": \"ex\",
-    \"secondary_phone\": \"debitis\",
-    \"job_title\": \"voluptate\",
-    \"timezone\": \"aspernatur\",
-    \"company_id\": \"doloremque\",
-    \"user_id\": \"dolore\"
+    \"email\": \"maddison.mcdermott@example.com\",
+    \"first_name\": \"quo\",
+    \"last_name\": \"nostrum\",
+    \"avatar\": \"https:\\/\\/www.bins.com\\/voluptatem-aut-odit-hic-eos-amet-ipsam\",
+    \"title\": \"veritatis\",
+    \"primary_phone\": \"nostrum\",
+    \"secondary_phone\": \"mollitia\",
+    \"job_title\": \"vel\",
+    \"timezone\": \"suscipit\",
+    \"company_id\": \"neque\",
+    \"user_id\": \"est\"
 }"
 </code></pre></div>
 
@@ -548,7 +548,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTv1-clients"
-               value="marc.carter@example.org"
+               value="maddison.mcdermott@example.com"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -558,7 +558,7 @@ fetch(url, {
                 <input type="text"
                name="first_name"
                data-endpoint="POSTv1-clients"
-               value="possimus"
+               value="quo"
                data-component="body" hidden>
     <br>
 
@@ -568,7 +568,7 @@ fetch(url, {
                 <input type="text"
                name="last_name"
                data-endpoint="POSTv1-clients"
-               value="porro"
+               value="nostrum"
                data-component="body" hidden>
     <br>
 
@@ -578,7 +578,7 @@ fetch(url, {
                 <input type="text"
                name="avatar"
                data-endpoint="POSTv1-clients"
-               value="http://www.cremin.com/quidem-voluptatem-in-cupiditate-officia-a"
+               value="https://www.bins.com/voluptatem-aut-odit-hic-eos-amet-ipsam"
                data-component="body" hidden>
     <br>
 <p>Must be a valid URL.</p>
@@ -588,7 +588,7 @@ fetch(url, {
                 <input type="text"
                name="title"
                data-endpoint="POSTv1-clients"
-               value="sunt"
+               value="veritatis"
                data-component="body" hidden>
     <br>
 
@@ -598,7 +598,7 @@ fetch(url, {
                 <input type="text"
                name="primary_phone"
                data-endpoint="POSTv1-clients"
-               value="ex"
+               value="nostrum"
                data-component="body" hidden>
     <br>
 
@@ -608,7 +608,7 @@ fetch(url, {
                 <input type="text"
                name="secondary_phone"
                data-endpoint="POSTv1-clients"
-               value="debitis"
+               value="mollitia"
                data-component="body" hidden>
     <br>
 
@@ -618,7 +618,7 @@ fetch(url, {
                 <input type="text"
                name="job_title"
                data-endpoint="POSTv1-clients"
-               value="voluptate"
+               value="vel"
                data-component="body" hidden>
     <br>
 
@@ -628,7 +628,7 @@ fetch(url, {
                 <input type="text"
                name="timezone"
                data-endpoint="POSTv1-clients"
-               value="aspernatur"
+               value="suscipit"
                data-component="body" hidden>
     <br>
 
@@ -638,7 +638,7 @@ fetch(url, {
                 <input type="text"
                name="company_id"
                data-endpoint="POSTv1-clients"
-               value="doloremque"
+               value="neque"
                data-component="body" hidden>
     <br>
 
@@ -648,7 +648,7 @@ fetch(url, {
                 <input type="text"
                name="user_id"
                data-endpoint="POSTv1-clients"
-               value="dolore"
+               value="est"
                data-component="body" hidden>
     <br>
 
@@ -668,7 +668,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/16"
+    "http://localhost:4500/v1/clients/1"
 );
 
 const headers = {
@@ -684,7 +684,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/16" \
+    --get "http://localhost:4500/v1/clients/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -759,7 +759,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETv1-clients--id-"
-               value="16"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -890,7 +890,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/12"
+    "http://localhost:4500/v1/clients/16"
 );
 
 const headers = {
@@ -906,7 +906,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/clients/12" \
+    "http://localhost:4500/v1/clients/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -985,7 +985,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-clients--id-"
-               value="12"
+               value="16"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -1005,7 +1005,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/14"
+    "http://localhost:4500/v1/clients/20"
 );
 
 const headers = {
@@ -1021,7 +1021,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/clients/14" \
+    "http://localhost:4500/v1/clients/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1096,7 +1096,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-clients--id-"
-               value="14"
+               value="20"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -1124,8 +1124,8 @@ fetch(url, {
 );
 
 const params = {
-    "page_size": "7",
-    "page": "18",
+    "page_size": "5",
+    "page": "6",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1143,7 +1143,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies?page_size=7&amp;page=18" \
+    --get "http://localhost:4500/v1/companies?page_size=5&amp;page=6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1230,7 +1230,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-companies"
-               value="7"
+               value="5"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -1240,7 +1240,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETv1-companies"
-               value="18"
+               value="6"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -1367,17 +1367,17 @@ const headers = {
 };
 
 let body = {
-    "name": "temporibus",
-    "email": "jlynch@example.com",
-    "domain": "earum",
-    "primary_phone": "necessitatibus",
-    "secondary_phone": "ab",
-    "address": "sint",
-    "description": "maiores",
-    "logo": "blanditiis",
-    "user_id": "aut",
+    "name": "laborum",
+    "email": "cathrine.bogisich@example.com",
+    "domain": "a",
+    "primary_phone": "vitae",
+    "secondary_phone": "dolore",
+    "address": "quasi",
+    "description": "architecto",
+    "logo": "aut",
+    "user_id": "corrupti",
     "client_ids": [
-        "odio"
+        "nihil"
     ]
 };
 
@@ -1394,17 +1394,17 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"temporibus\",
-    \"email\": \"jlynch@example.com\",
-    \"domain\": \"earum\",
-    \"primary_phone\": \"necessitatibus\",
-    \"secondary_phone\": \"ab\",
-    \"address\": \"sint\",
-    \"description\": \"maiores\",
-    \"logo\": \"blanditiis\",
-    \"user_id\": \"aut\",
+    \"name\": \"laborum\",
+    \"email\": \"cathrine.bogisich@example.com\",
+    \"domain\": \"a\",
+    \"primary_phone\": \"vitae\",
+    \"secondary_phone\": \"dolore\",
+    \"address\": \"quasi\",
+    \"description\": \"architecto\",
+    \"logo\": \"aut\",
+    \"user_id\": \"corrupti\",
     \"client_ids\": [
-        \"odio\"
+        \"nihil\"
     ]
 }"
 </code></pre></div>
@@ -1478,7 +1478,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTv1-companies"
-               value="temporibus"
+               value="laborum"
                data-component="body" hidden>
     <br>
 
@@ -1488,7 +1488,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTv1-companies"
-               value="jlynch@example.com"
+               value="cathrine.bogisich@example.com"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -1498,7 +1498,7 @@ fetch(url, {
                 <input type="text"
                name="domain"
                data-endpoint="POSTv1-companies"
-               value="earum"
+               value="a"
                data-component="body" hidden>
     <br>
 
@@ -1508,7 +1508,7 @@ fetch(url, {
                 <input type="text"
                name="primary_phone"
                data-endpoint="POSTv1-companies"
-               value="necessitatibus"
+               value="vitae"
                data-component="body" hidden>
     <br>
 
@@ -1518,7 +1518,7 @@ fetch(url, {
                 <input type="text"
                name="secondary_phone"
                data-endpoint="POSTv1-companies"
-               value="ab"
+               value="dolore"
                data-component="body" hidden>
     <br>
 
@@ -1528,7 +1528,7 @@ fetch(url, {
                 <input type="text"
                name="address"
                data-endpoint="POSTv1-companies"
-               value="sint"
+               value="quasi"
                data-component="body" hidden>
     <br>
 
@@ -1538,7 +1538,7 @@ fetch(url, {
                 <input type="text"
                name="description"
                data-endpoint="POSTv1-companies"
-               value="maiores"
+               value="architecto"
                data-component="body" hidden>
     <br>
 
@@ -1548,7 +1548,7 @@ fetch(url, {
                 <input type="text"
                name="logo"
                data-endpoint="POSTv1-companies"
-               value="blanditiis"
+               value="aut"
                data-component="body" hidden>
     <br>
 
@@ -1558,7 +1558,7 @@ fetch(url, {
                 <input type="text"
                name="user_id"
                data-endpoint="POSTv1-companies"
-               value="aut"
+               value="corrupti"
                data-component="body" hidden>
     <br>
 
@@ -1591,7 +1591,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/17"
+    "http://localhost:4500/v1/companies/10"
 );
 
 const headers = {
@@ -1607,7 +1607,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/17" \
+    --get "http://localhost:4500/v1/companies/10" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1680,7 +1680,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETv1-companies--id-"
-               value="17"
+               value="10"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -1700,7 +1700,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/11/edit"
+    "http://localhost:4500/v1/companies/8/edit"
 );
 
 const headers = {
@@ -1716,7 +1716,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/11/edit" \
+    --get "http://localhost:4500/v1/companies/8/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1789,7 +1789,7 @@ fetch(url, {
                 <input type="number"
                name="company_id"
                data-endpoint="GETv1-companies--company_id--edit"
-               value="11"
+               value="8"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -1809,7 +1809,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/11"
+    "http://localhost:4500/v1/companies/19"
 );
 
 const headers = {
@@ -1825,7 +1825,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/companies/11" \
+    "http://localhost:4500/v1/companies/19" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1902,7 +1902,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-companies--id-"
-               value="11"
+               value="19"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -1922,7 +1922,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/1"
+    "http://localhost:4500/v1/companies/6"
 );
 
 const headers = {
@@ -1938,7 +1938,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/companies/1" \
+    "http://localhost:4500/v1/companies/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2011,7 +2011,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-companies--id-"
-               value="1"
+               value="6"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -2066,7 +2066,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;7aaff904-c007-3e54-be40-3205f99e863c&quot;
+        &quot;uuid&quot;: &quot;cf292f53-620a-32de-a97c-6ee9ad72df1e&quot;
     }
 }</code>
  </pre>
@@ -2156,7 +2156,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;c731efea-1aa4-3f82-a46f-f3763c86935b&quot;
+        &quot;uuid&quot;: &quot;01a7fbe3-4e1e-3379-98d0-5c2555db5225&quot;
     }
 }</code>
  </pre>
