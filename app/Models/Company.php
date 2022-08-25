@@ -26,6 +26,7 @@ class Company extends Model
         'description',
         'primary_phone',
         'secondary_phone',
+        'user_id',
     ];
 
     /**

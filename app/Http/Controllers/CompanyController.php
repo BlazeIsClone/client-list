@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Resources\CompanyResource;
 use App\Models\Company;
+use App\Traits\UserClaims;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -15,6 +18,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
  */
 class CompanyController extends Controller
 {
+    use UserClaims;
+
     /**
      * Create the controller instance.
      */
@@ -37,7 +42,9 @@ class CompanyController extends Controller
 
         $clients = Company::query()
             ->with('clients')
-            ->paginate($limit);
+             ->whereHas('user', function (Builder $query) {
+                 return $query->where('uuid', $this->getUserUUID());
+             })->paginate($limit);
 
         return CompanyResource::collection($clients);
     }
@@ -59,18 +66,9 @@ class CompanyController extends Controller
      * @apiResource App\Http\Resources\CompanyResource
      * @apiResourceModel App\Models\Company
      */
-    public function store(Request $request): CompanyResource
+    public function store(StoreCompanyRequest $request): CompanyResource
     {
-        $created = Company::query()->create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'domain' => $request->domain,
-            'primary_phone' => $request->primary_number,
-            'secondary_phone' => $request->secondary_number,
-            'address' => $request->address,
-            'description' => $request->description,
-            'logo' => $request->logo,
-        ]);
+        $created = Company::create($request->getAttributes());
 
         return new CompanyResource($created);
     }

@@ -16,22 +16,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 4
+          example: 7
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 4
+            example: 7
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 1
+          example: 16
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 1
+            example: 16
         -
           in: header
           name: Content-Type
@@ -185,6 +185,60 @@ paths:
                       user: null
       tags:
         - 'Client Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: tierra95@example.com
+                first_name:
+                  type: string
+                  description: ''
+                  example: minima
+                last_name:
+                  type: string
+                  description: ''
+                  example: laudantium
+                avatar:
+                  type: string
+                  description: 'Must be a valid URL.'
+                  example: 'http://hansen.com/aut-quas-voluptates-eligendi-quia-totam-fuga'
+                title:
+                  type: string
+                  description: ''
+                  example: in
+                primary_phone:
+                  type: string
+                  description: ''
+                  example: fugiat
+                secondary_phone:
+                  type: string
+                  description: ''
+                  example: quasi
+                job_title:
+                  type: string
+                  description: ''
+                  example: ut
+                timezone:
+                  type: string
+                  description: ''
+                  example: id
+                company_id:
+                  type: integer
+                  description: ''
+                  example: 18
+                user_id:
+                  type: string
+                  description: ''
+                  example: nihil
+              required:
+                - email
+                - first_name
       security: []
   /v1/clients/create:
     get:
@@ -441,7 +495,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the client.'
-        example: 18
+        example: 15
         required: true
         schema:
           type: integer
@@ -513,7 +567,7 @@ paths:
         in: path
         name: client_id
         description: 'The ID of the client.'
-        example: 4
+        example: 16
         required: true
         schema:
           type: integer
@@ -526,22 +580,22 @@ paths:
           in: query
           name: page_size
           description: 'Size per page. Defaults to 20.'
-          example: 7
+          example: 18
           required: false
           schema:
             type: integer
             description: 'Size per page. Defaults to 20.'
-            example: 7
+            example: 18
         -
           in: query
           name: page
           description: 'int Page to view.'
-          example: 5
+          example: 1
           required: false
           schema:
             type: integer
             description: 'int Page to view.'
-            example: 5
+            example: 1
         -
           in: header
           name: Content-Type
@@ -909,7 +963,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: 4
+        example: 15
         required: true
         schema:
           type: integer
@@ -975,7 +1029,7 @@ paths:
         in: path
         name: company_id
         description: 'The ID of the company.'
-        example: 16
+        example: 13
         required: true
         schema:
           type: integer
@@ -1008,13 +1062,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 738765cd-f3c3-3f98-ab25-0f14110a11c2
+                    uuid: 01b12bff-979a-334c-8afe-e5d88a2f0adf
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 738765cd-f3c3-3f98-ab25-0f14110a11c2
+                      uuid: 01b12bff-979a-334c-8afe-e5d88a2f0adf
       tags:
         - 'User Management'
       security: []
@@ -1046,13 +1100,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: b81d60cf-3f7a-3b8e-a8ed-89f3e01bb9f8
+                    uuid: 69168845-5017-3d53-b201-60a6746ed43b
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: b81d60cf-3f7a-3b8e-a8ed-89f3e01bb9f8
+                      uuid: 69168845-5017-3d53-b201-60a6746ed43b
       tags:
         - 'User Management'
       security: []
@@ -1085,13 +1139,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 179c57d7-c0f2-35e3-85c1-c7cc9f82e2b3
+                    uuid: dae0677b-dfbe-3028-b86a-b19033a35026
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 179c57d7-c0f2-35e3-85c1-c7cc9f82e2b3
+                      uuid: dae0677b-dfbe-3028-b86a-b19033a35026
       tags:
         - 'User Management'
       security: []
@@ -1124,13 +1178,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: d03c38fa-26e6-3d81-aa70-1dd6ba9323aa
+                    uuid: a6686dae-89ab-3861-b3e7-25f83e2e9f3b
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: d03c38fa-26e6-3d81-aa70-1dd6ba9323aa
+                      uuid: a6686dae-89ab-3861-b3e7-25f83e2e9f3b
       tags:
         - 'User Management'
       security: []
@@ -1139,7 +1193,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 13
+        example: 15
         required: true
         schema:
           type: integer
@@ -1172,13 +1226,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: 5fc9b64f-4725-345c-bbc7-06ea4e63a953
+                    uuid: 86dd9e65-4220-3ac2-9fdb-e45e9cd91170
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: 5fc9b64f-4725-345c-bbc7-06ea4e63a953
+                      uuid: 86dd9e65-4220-3ac2-9fdb-e45e9cd91170
       tags:
         - 'User Management'
       security: []
@@ -1210,13 +1264,13 @@ paths:
                 example:
                   data:
                     id: null
-                    uuid: d476f99d-fbd3-33cb-a027-c6ad1033b83f
+                    uuid: 6644c1fe-c565-39df-b3cd-f55497a2109a
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      uuid: d476f99d-fbd3-33cb-a027-c6ad1033b83f
+                      uuid: 6644c1fe-c565-39df-b3cd-f55497a2109a
       tags:
         - 'User Management'
       security: []
@@ -1225,7 +1279,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 11
+        example: 15
         required: true
         schema:
           type: integer
@@ -1239,3 +1293,12 @@ tags:
   -
     name: 'User Management'
     description: "\nAPI to manage the user resource."
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

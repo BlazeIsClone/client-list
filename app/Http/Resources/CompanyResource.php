@@ -23,9 +23,8 @@ class CompanyResource extends JsonResource
             'primary_phone' => $this->primary_phone,
             'secondary_phone' => $this->secondary_phone,
             'address' => $this->address,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
             'clients' => ClientResource::collection($clients),
+            'user' => new UserResource($this->user),
         ];
     }
 }

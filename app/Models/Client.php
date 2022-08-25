@@ -24,6 +24,7 @@ class Client extends Model
         'primary_phone',
         'secondary_phone',
         'timezone',
+        'user_id',
     ];
 
     /**

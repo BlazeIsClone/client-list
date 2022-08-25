@@ -25,7 +25,7 @@ class ClientPolicy
      */
     public function view(User $user, Client $client): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
@@ -33,38 +33,38 @@ class ClientPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Client $client): bool
+    public function update(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Client $client): bool
+    public function delete(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Client $client): bool
+    public function restore(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Client $client): bool
+    public function forceDelete(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 }

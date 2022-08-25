@@ -23,8 +23,6 @@ class ClientResource extends JsonResource
             'job_title' => $this->job_title,
             'timezone' => $this->timezone,
             'company_id' => $this->company_id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
             'company' => new CompanyResource($this->whenLoaded('company')),
             'user' => new UserResource($this->user),
         ];

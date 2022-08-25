@@ -160,7 +160,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 24 2022</li>
+        <li>Last updated: August 25 2022</li>
     </ul>
 </div>
 
@@ -175,7 +175,9 @@
 <pre><code class="language-yaml">http://localhost:4500</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by authenticating with the identity provider.</p>
 
         <h1 id="client-management">Client Management</h1>
 
@@ -198,8 +200,8 @@
 );
 
 const params = {
-    "page_size": "4",
-    "page": "1",
+    "page_size": "7",
+    "page": "16",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -217,7 +219,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients?page_size=4&amp;page=1" \
+    --get "http://localhost:4500/v1/clients?page_size=7&amp;page=16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -312,7 +314,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-clients"
-               value="4"
+               value="7"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -322,7 +324,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETv1-clients"
-               value="1"
+               value="16"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -452,9 +454,24 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "tierra95@example.com",
+    "first_name": "minima",
+    "last_name": "laudantium",
+    "avatar": "http:\/\/hansen.com\/aut-quas-voluptates-eligendi-quia-totam-fuga",
+    "title": "in",
+    "primary_phone": "fugiat",
+    "secondary_phone": "quasi",
+    "job_title": "ut",
+    "timezone": "id",
+    "company_id": 18,
+    "user_id": "nihil"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -462,7 +479,21 @@ fetch(url, {
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:4500/v1/clients" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"tierra95@example.com\",
+    \"first_name\": \"minima\",
+    \"last_name\": \"laudantium\",
+    \"avatar\": \"http:\\/\\/hansen.com\\/aut-quas-voluptates-eligendi-quia-totam-fuga\",
+    \"title\": \"in\",
+    \"primary_phone\": \"fugiat\",
+    \"secondary_phone\": \"quasi\",
+    \"job_title\": \"ut\",
+    \"timezone\": \"id\",
+    \"company_id\": 18,
+    \"user_id\": \"nihil\"
+}"
+</code></pre></div>
 
 </span>
 
@@ -531,7 +562,118 @@ fetch(url, {
             <small class="badge badge-black">POST</small>
             <b><code>v1/clients</code></b>
         </p>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTv1-clients"
+               value="tierra95@example.com"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>first_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="first_name"
+               data-endpoint="POSTv1-clients"
+               value="minima"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>last_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="last_name"
+               data-endpoint="POSTv1-clients"
+               value="laudantium"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>avatar</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="avatar"
+               data-endpoint="POSTv1-clients"
+               value="http://hansen.com/aut-quas-voluptates-eligendi-quia-totam-fuga"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid URL.</p>
+        </p>
+                <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTv1-clients"
+               value="in"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>primary_phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="primary_phone"
+               data-endpoint="POSTv1-clients"
+               value="fugiat"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>secondary_phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="secondary_phone"
+               data-endpoint="POSTv1-clients"
+               value="quasi"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>job_title</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="job_title"
+               data-endpoint="POSTv1-clients"
+               value="ut"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>timezone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="timezone"
+               data-endpoint="POSTv1-clients"
+               value="id"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>company_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="company_id"
+               data-endpoint="POSTv1-clients"
+               value="18"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="user_id"
+               data-endpoint="POSTv1-clients"
+               value="nihil"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
 
             <h2 id="client-management-GETv1-clients--id-">Display the specified client.</h2>
 
@@ -546,7 +688,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/18"
+    "http://localhost:4500/v1/clients/15"
 );
 
 const headers = {
@@ -562,7 +704,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/18" \
+    --get "http://localhost:4500/v1/clients/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -639,7 +781,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETv1-clients--id-"
-               value="18"
+               value="15"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -659,7 +801,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/4/edit"
+    "http://localhost:4500/v1/clients/16/edit"
 );
 
 const headers = {
@@ -675,7 +817,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/clients/4/edit" \
+    --get "http://localhost:4500/v1/clients/16/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -752,7 +894,7 @@ fetch(url, {
                 <input type="number"
                name="client_id"
                data-endpoint="GETv1-clients--client_id--edit"
-               value="4"
+               value="16"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -772,7 +914,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/8"
+    "http://localhost:4500/v1/clients/7"
 );
 
 const headers = {
@@ -788,7 +930,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/clients/8" \
+    "http://localhost:4500/v1/clients/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -869,7 +1011,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-clients--id-"
-               value="8"
+               value="7"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -889,7 +1031,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/clients/6"
+    "http://localhost:4500/v1/clients/17"
 );
 
 const headers = {
@@ -905,7 +1047,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/clients/6" \
+    "http://localhost:4500/v1/clients/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -982,7 +1124,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-clients--id-"
-               value="6"
+               value="17"
                data-component="url" hidden>
     <br>
 <p>The ID of the client.</p>
@@ -1010,8 +1152,8 @@ fetch(url, {
 );
 
 const params = {
-    "page_size": "7",
-    "page": "5",
+    "page_size": "18",
+    "page": "1",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1029,7 +1171,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies?page_size=7&amp;page=5" \
+    --get "http://localhost:4500/v1/companies?page_size=18&amp;page=1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1118,7 +1260,7 @@ fetch(url, {
                 <input type="number"
                name="page_size"
                data-endpoint="GETv1-companies"
-               value="7"
+               value="18"
                data-component="query" hidden>
     <br>
 <p>Size per page. Defaults to 20.</p>
@@ -1128,7 +1270,7 @@ fetch(url, {
                 <input type="number"
                name="page"
                data-endpoint="GETv1-companies"
-               value="5"
+               value="1"
                data-component="query" hidden>
     <br>
 <p>int Page to view.</p>
@@ -1346,7 +1488,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/4"
+    "http://localhost:4500/v1/companies/15"
 );
 
 const headers = {
@@ -1362,7 +1504,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/4" \
+    --get "http://localhost:4500/v1/companies/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1436,7 +1578,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETv1-companies--id-"
-               value="4"
+               value="15"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -1456,7 +1598,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/16/edit"
+    "http://localhost:4500/v1/companies/13/edit"
 );
 
 const headers = {
@@ -1472,7 +1614,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/companies/16/edit" \
+    --get "http://localhost:4500/v1/companies/13/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1546,7 +1688,7 @@ fetch(url, {
                 <input type="number"
                name="company_id"
                data-endpoint="GETv1-companies--company_id--edit"
-               value="16"
+               value="13"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -1566,7 +1708,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/companies/10"
+    "http://localhost:4500/v1/companies/6"
 );
 
 const headers = {
@@ -1582,7 +1724,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/companies/10" \
+    "http://localhost:4500/v1/companies/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1660,7 +1802,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-companies--id-"
-               value="10"
+               value="6"
                data-component="url" hidden>
     <br>
 <p>The ID of the company.</p>
@@ -1825,7 +1967,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;738765cd-f3c3-3f98-ab25-0f14110a11c2&quot;
+        &quot;uuid&quot;: &quot;01b12bff-979a-334c-8afe-e5d88a2f0adf&quot;
     }
 }</code>
  </pre>
@@ -1915,7 +2057,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;179c57d7-c0f2-35e3-85c1-c7cc9f82e2b3&quot;
+        &quot;uuid&quot;: &quot;dae0677b-dfbe-3028-b86a-b19033a35026&quot;
     }
 }</code>
  </pre>
@@ -2005,7 +2147,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;b81d60cf-3f7a-3b8e-a8ed-89f3e01bb9f8&quot;
+        &quot;uuid&quot;: &quot;69168845-5017-3d53-b201-60a6746ed43b&quot;
     }
 }</code>
  </pre>
@@ -2064,7 +2206,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/user/13/edit"
+    "http://localhost:4500/v1/user/15/edit"
 );
 
 const headers = {
@@ -2080,7 +2222,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:4500/v1/user/13/edit" \
+    --get "http://localhost:4500/v1/user/15/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2095,7 +2237,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;d03c38fa-26e6-3d81-aa70-1dd6ba9323aa&quot;
+        &quot;uuid&quot;: &quot;a6686dae-89ab-3861-b3e7-25f83e2e9f3b&quot;
     }
 }</code>
  </pre>
@@ -2145,7 +2287,7 @@ fetch(url, {
                 <input type="number"
                name="user_id"
                data-endpoint="GETv1-user--user_id--edit"
-               value="13"
+               value="15"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -2165,7 +2307,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/user/11"
+    "http://localhost:4500/v1/user/15"
 );
 
 const headers = {
@@ -2181,7 +2323,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:4500/v1/user/11" \
+    "http://localhost:4500/v1/user/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2196,7 +2338,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;5fc9b64f-4725-345c-bbc7-06ea4e63a953&quot;
+        &quot;uuid&quot;: &quot;86dd9e65-4220-3ac2-9fdb-e45e9cd91170&quot;
     }
 }</code>
  </pre>
@@ -2250,7 +2392,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTv1-user--id-"
-               value="11"
+               value="15"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -2270,7 +2412,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:4500/v1/user/2"
+    "http://localhost:4500/v1/user/15"
 );
 
 const headers = {
@@ -2286,7 +2428,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:4500/v1/user/2" \
+    "http://localhost:4500/v1/user/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -2301,7 +2443,7 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;uuid&quot;: &quot;d476f99d-fbd3-33cb-a027-c6ad1033b83f&quot;
+        &quot;uuid&quot;: &quot;6644c1fe-c565-39df-b3cd-f55497a2109a&quot;
     }
 }</code>
  </pre>
@@ -2351,7 +2493,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEv1-user--id-"
-               value="2"
+               value="15"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>

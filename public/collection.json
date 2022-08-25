@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "fc3ddb6a-fa2f-4125-b0af-348acd660dc3",
+        "_postman_id": "ca9c4d4a-4190-4bc2-8eb0-dd6e9f82517d",
         "description": "Client List API Docs",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,18 +28,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "4",
+                                    "value": "7",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "1",
+                                    "value": "16",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/clients?page_size=4&page=1"
+                            "raw": "{{baseUrl}}\/v1\/clients?page_size=7&page=16"
                         },
                         "method": "GET",
                         "header": [
@@ -122,7 +122,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"tierra95@example.com\",\"first_name\":\"minima\",\"last_name\":\"laudantium\",\"avatar\":\"http:\\\/\\\/hansen.com\\\/aut-quas-voluptates-eligendi-quia-totam-fuga\",\"title\":\"in\",\"primary_phone\":\"fugiat\",\"secondary_phone\":\"quasi\",\"job_title\":\"ut\",\"timezone\":\"id\",\"company_id\":18,\"user_id\":\"nihil\"}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -149,7 +152,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "15",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -192,7 +195,7 @@
                                 {
                                     "id": "client_id",
                                     "key": "client_id",
-                                    "value": "4",
+                                    "value": "16",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -235,7 +238,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "7",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -278,7 +281,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "17",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -324,18 +327,18 @@
                             "query": [
                                 {
                                     "key": "page_size",
-                                    "value": "7",
+                                    "value": "18",
                                     "description": "Size per page. Defaults to 20.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "5",
+                                    "value": "1",
                                     "description": "int Page to view.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/v1\/companies?page_size=7&page=5"
+                            "raw": "{{baseUrl}}\/v1\/companies?page_size=18&page=1"
                         },
                         "method": "GET",
                         "header": [
@@ -445,7 +448,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "4",
+                                    "value": "15",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -488,7 +491,7 @@
                                 {
                                     "id": "company_id",
                                     "key": "company_id",
-                                    "value": "16",
+                                    "value": "13",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -531,7 +534,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "6",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -641,7 +644,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"738765cd-f3c3-3f98-ab25-0f14110a11c2\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"01b12bff-979a-334c-8afe-e5d88a2f0adf\"}}",
                             "name": "0"
                         }
                     ]
@@ -676,7 +679,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"179c57d7-c0f2-35e3-85c1-c7cc9f82e2b3\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"dae0677b-dfbe-3028-b86a-b19033a35026\"}}",
                             "name": "0"
                         }
                     ]
@@ -711,7 +714,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"b81d60cf-3f7a-3b8e-a8ed-89f3e01bb9f8\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"69168845-5017-3d53-b201-60a6746ed43b\"}}",
                             "name": "0"
                         }
                     ]
@@ -728,7 +731,7 @@
                                 {
                                     "id": "user_id",
                                     "key": "user_id",
-                                    "value": "13",
+                                    "value": "15",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -754,7 +757,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"d03c38fa-26e6-3d81-aa70-1dd6ba9323aa\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"a6686dae-89ab-3861-b3e7-25f83e2e9f3b\"}}",
                             "name": "0"
                         }
                     ]
@@ -771,7 +774,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "11",
+                                    "value": "15",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -797,7 +800,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"5fc9b64f-4725-345c-bbc7-06ea4e63a953\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"86dd9e65-4220-3ac2-9fdb-e45e9cd91170\"}}",
                             "name": "0"
                         }
                     ]
@@ -814,7 +817,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "15",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -840,7 +843,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"uuid\":\"d476f99d-fbd3-33cb-a027-c6ad1033b83f\"}}",
+                            "body": "{\"data\":{\"id\":null,\"uuid\":\"6644c1fe-c565-39df-b3cd-f55497a2109a\"}}",
                             "name": "0"
                         }
                     ]
@@ -849,6 +852,6 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer"
     }
 }

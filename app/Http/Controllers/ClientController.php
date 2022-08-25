@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
 use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use App\Traits\UserClaims;
@@ -64,17 +65,9 @@ class ClientController extends Controller
      * @apiResource App\Http\Resources\ClientResource
      * @apiResourceModel App\Models\Client
      */
-    public function store(Request $request): ClientResource
+    public function store(StoreClientRequest $request): ClientResource
     {
-        $created = Client::query()->create([
-            'email' => $request->email,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'primary_phone' => $request->primary_phone,
-            'secondary_phone' => $request->secondary_phone,
-            'timezone' => $request->timezone,
-            'company_id' => $request->company_id,
-        ]);
+        $created = Client::create($request->getAttributes());
 
         return new ClientResource($created);
     }
@@ -121,7 +114,7 @@ class ClientController extends Controller
 
         if (! $updated) {
             return new JsonResponse([
-                'erros' => 'Failed to updated model.',
+                'errors' => 'Failed to updated model.',
             ], 400);
         }
 

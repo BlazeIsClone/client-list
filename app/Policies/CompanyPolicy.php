@@ -2,28 +2,29 @@
 
 namespace App\Policies;
 
-use App\Models\Company;
 use App\Models\User;
+use App\Traits\UserClaims;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CompanyPolicy
 {
     use HandlesAuthorization;
+    use UserClaims;
 
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Company $company): bool
+    public function view(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
@@ -31,38 +32,38 @@ class CompanyPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Company $company): bool
+    public function update(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Company $company): bool
+    public function delete(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Company $company): bool
+    public function restore(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Company $company): bool
+    public function forceDelete(User $user): bool
     {
-        return true;
+        return $this->getUserUUID() === $user->uuid;
     }
 }
