@@ -20,17 +20,17 @@ class StoreClientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'             => ['required', 'email', 'unique:clients,email'],
-            'first_name'        => ['required'],
-            'last_name'         => ['string'],
-            'avatar'            => ['url'],
-            'title'             => ['string'],
-            'primary_phone'     => ['string'],
-            'secondary_phone'   => ['string'],
-            'job_title'         => ['string'],
-            'timezone'          => ['string'],
-            'company_id'        => ['string'],
-            'user_id'           => ['string', 'required'],
+            'email' => ['required', 'email', 'unique:clients,email'],
+            'first_name' => ['required'],
+            'last_name' => ['string'],
+            'avatar' => ['url'],
+            'title' => ['string'],
+            'primary_phone' => ['string'],
+            'secondary_phone' => ['string'],
+            'job_title' => ['string'],
+            'timezone' => ['string'],
+            'company_id' => ['string'],
+            'user_id' => ['string', 'required'],
         ];
     }
 

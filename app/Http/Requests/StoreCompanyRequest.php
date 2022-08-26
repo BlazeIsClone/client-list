@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\StringArray;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCompanyRequest extends FormRequest
@@ -21,16 +20,15 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'              => ['string', 'unique:companies,name'],
-            'email'             => ['email', 'unique:companies,email'],
-            'domain'            => ['string', 'unique:companies,domain'],
-            'primary_phone'     => ['string'],
-            'secondary_phone'   => ['string'],
-            'address'           => ['string'],
-            'description'       => ['string'],
-            'logo'              => ['string'],
-            'user_id'           => ['string', 'required'],
-            'client_ids'        => ['array', new StringArray()],
+            'name' => ['string', 'unique:companies,name'],
+            'email' => ['email', 'unique:companies,email'],
+            'domain' => ['string', 'unique:companies,domain'],
+            'primary_phone' => ['string'],
+            'secondary_phone' => ['string'],
+            'address' => ['string'],
+            'description' => ['string'],
+            'logo' => ['string'],
+            'user_id' => ['string', 'required'],
         ];
     }
 

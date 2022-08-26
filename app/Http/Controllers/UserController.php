@@ -34,7 +34,6 @@ class UserController extends Controller
         return new UserResource($users);
     }
 
-
     /**
      * Remove the specified user from storage.
      *
