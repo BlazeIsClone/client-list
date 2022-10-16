@@ -13,12 +13,17 @@ jobs:
 
     services:
       mysql:
-        image: mysql:5.7
+        image: mysql/mysql-server:8.0
         env:
+          MYSQL_ROOT_HOST: cl-mysql
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: client_list
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
         ports:
           - 33306:3306
+        volumes:
+          - ./vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
