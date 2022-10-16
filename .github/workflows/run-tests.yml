@@ -38,5 +38,5 @@ jobs:
 
       - name: Run Testsuite 🧪
         run: |
-          - vendor/bin/phpunit tests/
-          - exit 0
+          vendor/bin/phpunit tests/
+          exit 0
