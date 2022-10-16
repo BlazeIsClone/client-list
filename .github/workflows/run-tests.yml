@@ -38,3 +38,6 @@ jobs:
 
       - name: Run Testsuite 🧪
         run: vendor/bin/phpunit tests/
+
+      - name: Exit 🛑
+        run: echo exit 0
