@@ -37,7 +37,6 @@ jobs:
         run: php artisan key:generate
 
       - name: Run Testsuite 🧪
-        run: vendor/bin/phpunit tests/
-
-      - name: Exit 🛑
-        run: echo exit 0
+        run: |
+          - vendor/bin/phpunit tests/
+          - echo exit 0
